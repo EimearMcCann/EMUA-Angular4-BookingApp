@@ -15,7 +15,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-    background-color: rgb(29, 37, 112);
+    background-color: rgb(112, 190, 241);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -44,8 +44,8 @@ button:hover {
 
 /* Avatar image */
 img.avatar {
-    width: 40%;
-    border-radius: 50%;
+    width: 10%;
+    border-radius: 20%;
 }
 
 /* Add padding to containers */
