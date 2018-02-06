@@ -1,18 +1,19 @@
-//import { Component } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-service-list',
+  templateUrl: './service-list.component.html',
+  styleUrls: ['./service-list.component.css']
 })
-export class AppComponent {
-  title = 'EMUA';
-  public items : Array<any> =[];
+export class ServiceListComponent {
+
+   public items : Array<any> =[];
   constructor(public http : HttpClient) {
 
-   
   }
+
 ionViewWillEnter() : void{
   this.load();
 }
@@ -24,7 +25,7 @@ ionViewWillEnter() : void{
    */
 load() : void{
   this.http
-  .get('http://slimapp/api/customer/{idClient}')
+  .get('http://slimapp/api/customers')
   
   .subscribe((data : any) =>
 {
@@ -41,3 +42,5 @@ load() : void{
 
  
   }
+
+

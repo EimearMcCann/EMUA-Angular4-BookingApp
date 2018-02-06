@@ -1,7 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-  {{ title }}
+  title
   </h1>
+  <button>press</button>
+  <div *ngFor="let item of items">
   
-  <app-login></app-login>
+    <h2>{{ item.Client_Fname }} ({{ item.Client_Lname }}) </h2>
+    <br>
+   
+  </div>
+  
+ <!-- <app-service-list></app-service-list>-->
