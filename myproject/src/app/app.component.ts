@@ -17,7 +17,7 @@ export class AppComponent {
    
   }
   getClient(){
-    this.httpClient.get('http://slimapp/api/customer')
+    this.httpClient.get('http://slimapp/api/customers')
     .subscribe(
       (data:any[])=>{
         console.log(data);
