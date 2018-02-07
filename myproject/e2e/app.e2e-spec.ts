@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('emua-app1 App', () => {
+describe('myproject App', () => {
   let page: AppPage;
 
   beforeEach(() => {
