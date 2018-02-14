@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loginform',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginformComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -17,8 +18,11 @@ export class LoginformComponent implements OnInit {
     console.log(e);
     var username = e.target.elements[0].value;
     var password = e.target.elements[1].value;
-    console.log(username, password);
-    return false;
+    
+    if (username =='admin' && password =='admin'){
+      this.router.navigate(['dashboard']);
+    }
+
 
 
   }

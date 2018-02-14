@@ -10,7 +10,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {RouterModule, Routes} from '@angular/router';
 
 
-
+const appRoutes:Routes = [
+  {
+    path: '',
+    component: LoginformComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  }
+]
 
 @NgModule({
   declarations: [
@@ -22,6 +31,7 @@ import {RouterModule, Routes} from '@angular/router';
     
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule, 
     HttpModule, 
     HttpClientModule
