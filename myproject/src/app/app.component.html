@@ -4,6 +4,8 @@
 
   <router-outlet></router-outlet>
 
+  <app-footer></app-footer>
+
 </div>
 
 <button (click) = "load()">View Clients</button>
@@ -12,10 +14,10 @@
 <td>{{ item.Client_Lname }}
 
 <td></tr>-->
-<li *ngFor = "let item of items">
-  <h3>{{ item.Client_Fname }} {{ item.Client_Lname}} {{ item.Client_Email }} {{ item.Client_Password}}</h3> 
+<ul *ngFor = "let item of items">
+  <li>{{ item.Client_Fname }} {{ item.Client_Lname}} {{ item.Client_Email }} {{ item.Client_Password}}</li> 
 
-</li>
+  </ul>
 
 <br>
 
