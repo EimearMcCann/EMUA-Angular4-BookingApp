@@ -7,27 +7,4 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {  
-public items : Array<any>=[];
-  Client_Fname:string='';
-
-
-  constructor(private httpClient:HttpClient){}
-  
-ionViewWillEnter() : void{
-  this.load
 }
-
-  load():void{
-    this.httpClient.get('http://localhost/retrieve-dataAWS.php')
-    .subscribe(
-      (data:any[])=>{
-        console.log(data);
-        this.items= data;
-      },
-      (error:any) =>{
-        console.dir(error);
-      });
-
-  }
- }
-

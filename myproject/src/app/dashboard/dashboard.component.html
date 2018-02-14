@@ -1,18 +1,5 @@
 
-<button (click) = "load()">View Clients</button>
-
-<!--<tr ng-repeat="item in items">
-<td>{{ item.Client_Lname }}
-
-<td></tr>-->
-<ul *ngFor = "let item of items">
-  <li>{{ item.Client_Fname }} {{ item.Client_Lname}} {{ item.Client_Email }} {{ item.Client_Password}}</li> 
-
-  </ul>
-
-<br>
-
-<app-appointments></app-appointments>
+<input type="button" value="View Clients" [routerLink]="['../clients']" class="btn">
 
 
 

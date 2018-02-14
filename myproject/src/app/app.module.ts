@@ -11,6 +11,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import {UserService} from './user.service';
 import { AuthguardGuard } from './authguard.guard';
+import { ClientsComponent } from './clients/clients.component';
 
 
 const appRoutes:Routes = [
@@ -22,6 +23,10 @@ const appRoutes:Routes = [
     path: 'dashboard',
     canActivate: [AuthguardGuard],
     component: DashboardComponent
+  },
+  {
+    path: 'clients',
+    component: ClientsComponent
   }
 ]
 
@@ -33,6 +38,7 @@ const appRoutes:Routes = [
     HeaderComponent,
     DashboardComponent,
     FooterComponent,
+    ClientsComponent,
     
   ],
   imports: [
