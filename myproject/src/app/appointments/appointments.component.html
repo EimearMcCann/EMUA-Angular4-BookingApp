@@ -1,0 +1,7 @@
+
+<button (click) = "load()">View Appointments</button>
+
+<li *ngFor = "let item of items">
+  <h2>{{ item.idAppointment }}{{ item.Appointment_Name }}<br> {{ item.Appointment_Time}}<br> {{ item.Appointment_Date }} {{ item.Appointment_Service}}</h2> 
+
+</li>

@@ -7,26 +7,26 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {  
-
+public items : Array<any>=[];
   Client_Fname:string='';
 
 
   constructor(private httpClient:HttpClient){}
-  onNameKeyUp(event:any){
-    this.Client_Fname = '';
-   
-  }
-  getClient(){
-    this.httpClient.get('http://slimapp/api/customer')
+  
+ionViewWillEnter() : void{
+  this.load
+}
+
+  load():void{
+    this.httpClient.get('http://localhost/retrieve-dataAWS.php')
     .subscribe(
       (data:any[])=>{
         console.log(data);
-       
-          
-        }
-        
-      
-    )
+        this.items= data;
+      },
+      (error:any) =>{
+        console.dir(error);
+      });
 
   }
  }

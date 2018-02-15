@@ -1,5 +1,17 @@
 
 
-<input type="text" (keyup)="onNameKeyUp($event)">
 
-<button (click)="getClient()">Get Client</button>
+<button (click) = "load()">View Clients</button>
+
+<!--<tr ng-repeat="item in items">
+<td>{{ item.Client_Lname }}
+
+<td></tr>-->
+<li *ngFor = "let item of items">
+  <h3>{{ item.Client_Fname }} {{ item.Client_Lname}} {{ item.Client_Email }} {{ item.Client_Password}}</h3> 
+
+</li>
+
+<br>
+
+<app-appointments></app-appointments>
