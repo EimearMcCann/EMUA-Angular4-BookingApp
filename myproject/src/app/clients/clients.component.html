@@ -1,9 +1,35 @@
-
+<div style="overflow-x:auto;">
 <button (click) = "load()">View Clients</button>
+<table style="width:100%">
+  <thead>
+  <tr>
+    <td>Client ID</td>
+    <td>Firstname</td>
+    <td>Lastname</td> 
+    <td>Email</td>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let item of items">
+    <td>{{item.idClient}}</td>
+    <td>{{item.Client_Fname}}</td>
+    <td>{{item.Client_Lname}}</td> 
+    <td>{{item.Client_Email}}</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+
+<!--button (click) = "load()">View Clients</button>
 
 <ul *ngFor = "let item of items">
   <li>{{ item.Client_Fname }} {{ item.Client_Lname}} {{ item.Client_Email }} {{ item.Client_Password}}</li> 
 
   </ul>
 
-<br>
+<br>-->

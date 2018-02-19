@@ -27,6 +27,10 @@ const appRoutes:Routes = [
   {
     path: 'clients',
     component: ClientsComponent
+  },
+  {
+    path:'appointments',
+    component: AppointmentsComponent
   }
 ]
 
