@@ -12,9 +12,21 @@ import { FooterComponent } from './footer/footer.component';
 import {UserService} from './user.service';
 import { AuthguardGuard } from './authguard.guard';
 import { ClientsComponent } from './clients/clients.component';
+import { UserloginComponent } from './userlogin/userlogin.component';
+import { RegisterComponent } from './register/register.component';
+import { UserservicesComponent } from './userservices/userservices.component';
+import { DateandtimeComponent } from './dateandtime/dateandtime.component';
 
 
 const appRoutes:Routes = [
+  {
+    path: 'userlogin',
+    component: UserloginComponent
+  },
+  {
+    path: 'userservices',
+    component: UserservicesComponent
+  },
   {
     path: '',
     component: LoginformComponent
@@ -43,6 +55,10 @@ const appRoutes:Routes = [
     DashboardComponent,
     FooterComponent,
     ClientsComponent,
+    UserloginComponent,
+    RegisterComponent,
+    UserservicesComponent,
+    DateandtimeComponent,
     
   ],
   imports: [
