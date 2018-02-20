@@ -24,6 +24,14 @@ const appRoutes:Routes = [
     component: UserloginComponent
   },
   {
+    path: 'loginform',
+    component: LoginformComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
     path: 'userservices',
     component: UserservicesComponent
   },
