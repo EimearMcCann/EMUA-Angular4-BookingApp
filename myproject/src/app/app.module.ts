@@ -16,7 +16,7 @@ import { UserloginComponent } from './userlogin/userlogin.component';
 import { RegisterComponent } from './register/register.component';
 import { UserservicesComponent } from './userservices/userservices.component';
 import { DateandtimeComponent } from './dateandtime/dateandtime.component';
-
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes:Routes = [
   {
@@ -34,6 +34,10 @@ const appRoutes:Routes = [
   {
     path: 'userservices',
     component: UserservicesComponent
+  },
+  {
+    path: 'dateandtime',
+    component: DateandtimeComponent
   },
   {
     path: '',
@@ -73,7 +77,9 @@ const appRoutes:Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserModule, 
     HttpModule, 
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [UserService,
   AuthguardGuard],

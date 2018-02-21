@@ -1,1 +1,16 @@
-<h1>Services List</h1>
+
+
+<select>
+<option *ngFor="let item of items" [value]= "item.idServices">
+    {{item.Service_Name}}
+   <p>€</p> {{item.Service_Price}}
+</option>
+</select>
+
+
+
+<div style = "text-align:end;">
+        <input type="button" value="Date and Time" [routerLink]="['../dateandtime']" class="Homebtn">
+    </div>
+      
+    
