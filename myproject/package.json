@@ -12,6 +12,8 @@
   },
   "private": true,
   "dependencies": {
+    "bootstrap": "^v4.0.0-alpha.6",
+    "ng2-smart-table": "^1.2.2",
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
