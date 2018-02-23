@@ -1,6 +1,9 @@
 import { Component} from '@angular/core';
 import { UserService } from '../user.service';
 import {HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router/src/router';
+import {Http, Response, Headers} from '@angular/http';
+
 
 @Component({
   selector: 'app-clients',

@@ -17,6 +17,8 @@ import { RegisterComponent } from './register/register.component';
 import { UserservicesComponent } from './userservices/userservices.component';
 import { DateandtimeComponent } from './dateandtime/dateandtime.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { NewclientComponent } from './newclient/newclient.component';
 
 const appRoutes:Routes = [
   {
@@ -55,6 +57,14 @@ const appRoutes:Routes = [
   {
     path:'appointments',
     component: AppointmentsComponent
+  },
+  {
+    path:'update-product/:idClient',
+    component: UpdateProductComponent
+  },
+  {
+    path:'newclient',
+    component: NewclientComponent
   }
 ]
 
@@ -71,6 +81,8 @@ const appRoutes:Routes = [
     RegisterComponent,
     UserservicesComponent,
     DateandtimeComponent,
+    UpdateProductComponent,
+    NewclientComponent,
     
   ],
   imports: [

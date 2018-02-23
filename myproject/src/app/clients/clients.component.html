@@ -2,6 +2,10 @@
   <input type="button" value="Sign Out" [routerLink]="['/']" class="Homebtn">
 </header>
 
+<a routerLink = '/newclient'>+ Add Client</a>
+
+<h1>Clients</h1>
+
 <div style="overflow-x:auto;">
 <table style="width:100%" class = "blueTable">
   <thead>
@@ -10,6 +14,8 @@
     <td>Firstname</td>
     <td>Lastname</td> 
     <td>Email</td>
+    <td></td>
+    
   </tr>
 </thead>
 <tbody>
@@ -18,6 +24,8 @@
     <td>{{item.Client_Fname}}</td>
     <td>{{item.Client_Lname}}</td> 
     <td>{{item.Client_Email}}</td>
+    <button (click) = "deleteClient (item.idClient) "><a>DELETE</a></button>
+    <input type="button" value="UPDATE" [routerLink]="['/update-product', item.idClient]" class="updatebtn">
   </tr>
 </tbody>
 </table>

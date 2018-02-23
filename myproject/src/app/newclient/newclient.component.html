@@ -1,0 +1,12 @@
+<a routerLink = "/">Back</a>
+
+<h2>
+  Add New Client
+</h2>
+
+<form id = "formNewClient" name = "formNewClient" #clientData = "ngForm" (ngSubmit) = "addNewClient(clientData.value)">
+<label>Name: </label><input type = "text" name="name" id="name" placeholder="name" ngModal><br>
+<label>Email: </label><input type = "text" name="Email" id="Email" placeholder="Email" ngModal><br>
+<input type="submit" value="Add Client">
+
+</form>
