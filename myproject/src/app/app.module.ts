@@ -59,7 +59,7 @@ const appRoutes:Routes = [
     component: AppointmentsComponent
   },
   {
-    path:'update-product/:idClient',
+    path:'update-product/:userID',
     component: UpdateProductComponent
   },
   {

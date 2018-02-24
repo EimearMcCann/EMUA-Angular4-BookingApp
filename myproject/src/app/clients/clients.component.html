@@ -11,8 +11,9 @@
   <thead>
   <tr>
     <td>Client ID</td>
-    <td>Firstname</td>
-    <td>Lastname</td> 
+    <td>Username</td>
+    <td>Full Name</td> 
+    <td>Phone</td>
     <td>Email</td>
     <td></td>
     
@@ -20,12 +21,14 @@
 </thead>
 <tbody>
   <tr *ngFor="let item of items">
-    <td>{{item.idClient}}</td>
-    <td>{{item.Client_Fname}}</td>
-    <td>{{item.Client_Lname}}</td> 
-    <td>{{item.Client_Email}}</td>
-    <button (click) = "deleteClient (item.idClient) "><a>DELETE</a></button>
-    <input type="button" value="UPDATE" [routerLink]="['/update-product', item.idClient]" class="updatebtn">
+    <td>{{item.userID}}</td>
+    <td>{{item.username}}</td>
+    <td>{{item.name}}</td> 
+    <td>{{item.phone}}</td>
+    <td>{{item.email}}</td>
+   
+    <button (click) = "deleteClient (item.userID) "><a>DELETE</a></button>
+    <input type="button" value="UPDATE" [routerLink]="['/update-product', item.userID]" class="updatebtn">
   </tr>
 </tbody>
 </table>

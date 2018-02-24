@@ -4,9 +4,46 @@
   Add New Client
 </h2>
 
-<form id = "formNewClient" name = "formNewClient" #clientData = "ngForm" (ngSubmit) = "addNewClient(clientData.value)">
-<label>Name: </label><input type = "text" name="name" id="name" placeholder="name" ngModal><br>
-<label>Email: </label><input type = "text" name="Email" id="Email" placeholder="Email" ngModal><br>
-<input type="submit" value="Add Client">
+<form [formGroup]="form" (ngSubmit)="saveUser()">
+      <div>
+        <label color="light"> New Username:</label>
+       <input type="text"
+              placeholder="Enter a username.."
+            formControlName="username"
+              [(ngModel)]="uName"><input>
+     </div>
+      <div> <label color="light"> New Password:</label>
+        <input type="text"
+               placeholder="Enter a password.."
+               formControlName="password"
+               [(ngModel)]="pWord"><input></div>
+    <div>
+      <label color="light">Clients Full Name:</label>
+       <input type="text"
+              placeholder="Enter Full Name.."
+              formControlName="name"
+              [(ngModel)]="fName"><input>
+    </div>
+    <div>
+      <label color="light">Clients Contact Number:</label>
+       <input type="text"
+              placeholder="Enter Contact No.."
+              formControlName="phone"
+              [(ngModel)]="pphone"><input>
+    </div>
+
+    <div>  <label color="light">Clients Email Address:</label>
+      <input type="text" placeholder="Enter Email Address.."
+      formControlName="email" [(ngModel)]="eMail"><input>
+    </div>
+
+    <button
+    color="primary"
+    text-center
+    block
+    [disabled]="!form.valid">Sign Up</button>
+
+    
+
 
 </form>
