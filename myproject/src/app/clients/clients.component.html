@@ -6,8 +6,9 @@
 
 <h1>Clients</h1>
 
+
 <div style="overflow-x:auto;">
-<table style="width:100%" class = "blueTable">
+<table style="width:100%" class = "table table-striped">
   <thead>
   <tr>
     <td>Client ID</td>
@@ -21,19 +22,20 @@
 </thead>
 <tbody>
   <tr *ngFor="let item of items">
+    
     <td>{{item.userID}}</td>
     <td>{{item.username}}</td>
     <td>{{item.name}}</td> 
     <td>{{item.phone}}</td>
     <td>{{item.email}}</td>
+    <button (click)="click({record: item})">Update</button>
    
-    <button (click) = "deleteClient (item.userID) "><a>DELETE</a></button>
-    <input type="button" value="UPDATE" [routerLink]="['/update-product', item.userID]" class="updatebtn">
+   <!-- <button (click) = "deleteClient (item.userID) "><a>DELETE</a></button>-->
+    
   </tr>
 </tbody>
 </table>
 </div>
-
 
 
 

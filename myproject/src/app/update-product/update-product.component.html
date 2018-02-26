@@ -1,49 +1,68 @@
 
-     <h1> Update Client</h1>
-     <form [formGroup]="form" (ngSubmit)="saveUser()">
-        <div>
-            <label color="light">Client ID:</label>
-           <input type="text"
-                formControlName="userID"
-                  [(ngModel)]="userID"><input>
-         </div>
-          
-             <label color="light">Username:</label>
-            <input type="text"
-                   placeholder="Enter a username.."
-                 formControlName="uName"
-                   [(ngModel)]="username"><input>
+  
+  <h1 class="head text-center"> Update Client</h1>
+
+<div class="container">
+<div class="jumbotron">
+  
+     <form [formGroup]="form"  (ngSubmit)="saveUser()">
       
-           <div> <label color="light">Password:</label>
-             <input type="text"
+       <div>
+            <label color="light">Client ID:</label>
+           <input type="text" class="form-control"
+           placeholder="Enter ID" 
+                formControlName="userID"
+                  [(ngModel)]="userID" required >
+       </div>  
+
+          <br>
+             <label color="light">Username:</label>
+            <input type="text" class="form-control"
+                   placeholder="Enter a username.."
+                   pattern="[a-zA-Z][a-zA-Z]+"
+                 formControlName="uName"
+                   [(ngModel)]="username">
+          <br>
+           <label color="light">Password:</label>
+             <input type="text"  class="form-control"
                     placeholder="Enter a password.."
                     formControlName="pWord"
-                    [(ngModel)]="password"><input></div>
-         <div>
+                    [(ngModel)]="password">
+          <br>
+         
            <label color="light">Full Name:</label>
-            <input type="text"
-                   placeholder= "name"
+            <input type="text"  class="form-control"
+                   placeholder= "Enter Full name.."
                    formControlName="fName"
-                   [(ngModel)]="name"><input>
-         </div>
-         <div>
+                   [(ngModel)]="name">
+         <br>
+        
            <label color="light">Contact Number:</label>
-            <input type="text"
+            <input type="text"  class="form-control"
                    placeholder="Enter Contact No.."
-                   formControlName="pphone"
-                   [(ngModel)]="phone"><input>
-         </div>
-
-         <div>  <label color="light">Email Address:</label>
-           <input type="text" placeholder="Enter Email Address.."
-           formControlName="eMail" [(ngModel)]="email"><input>
-         </div>
+                   formControlName="pphone" pattern="[0-9]*"
+                   [(ngModel)]="phone">
+        
+          <br>
+         <label color="light">Email Address:</label>
+           <input type="text"  class="form-control"
+            placeholder="Enter Email Address.." 
+           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+           formControlName="eMail" [(ngModel)]="email">
+        <br>
 
          <button
+         type="button"
+         class="btn btn-primary btn-block"
          color="primary"
          text-center
          block
          [disabled]="!form.valid">Update</button>
+         <button class="btn" (click)="resetFields()">Reset</button>
 
-         
+     
 
+         </form>
+        
+  </div>
+</div>

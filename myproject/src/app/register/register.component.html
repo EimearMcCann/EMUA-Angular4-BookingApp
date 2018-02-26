@@ -1,40 +1,48 @@
 
-     <h1 class="head"> Register</h1>
+     <h1 class="header text-center"> Register</h1>
+     <div class="container">
+       <div class="jumbotron">
+        
             <form [formGroup]="form" (ngSubmit)="saveUser()">
-                  <div class="invention">
+                 
                     <label color="light">Username:</label>
-                   <input type="text"
-                          placeholder="Enter a username.."
-                        formControlName="username"
-                          [(ngModel)]="uName"><input>
-                 </div>
-                  <div class="invention"> <label color="light">Password:</label>
-                    <input type="text"
+                   <input type="text" class="form-control" 
+                    pattern="[a-zA-Z][a-zA-Z]+"
+                    placeholder="Enter a username.."
+                    formControlName="username"
+                          [(ngModel)]="uName">
+                 
+                   <label color="light">Password:</label>
+                    <input type="text" class="form-control"
                            placeholder="Enter a password.."
                            formControlName="password"
-                           [(ngModel)]="pWord"><input></div>
-                <div class="invention">
+                           [(ngModel)]="pWord">
+                
                   <label color="light">Full Name:</label>
-                   <input type="text"
+                   <input type="text" class="form-control"
+                   pattern="[a-zA-Z][a-zA-Z]+"
                           placeholder="Enter Full Name.."
                           formControlName="name"
-                          [(ngModel)]="fName"><input>
-                </div>
-                <div class="invention">
+                          [(ngModel)]="fName">
+                
+                
                   <label color="light">Contact Number:</label>
-                   <input type="text"
+                   <input type="text" class="form-control"
                           placeholder="Enter Contact No.."
+                          pattern="[0-9]*"
                           formControlName="phone"
-                          [(ngModel)]="pphone"><input>
-                </div>
+                          [(ngModel)]="pphone">
+               
 
-                <div class="invention">  <label color="light">Email Address:</label>
-                  <input type="text" placeholder="Enter Email Address.."
-                  formControlName="email" [(ngModel)]="eMail"><input>
-                </div>
+                 <label color="light">Email Address:</label>
+                  <input type="text" class="form-control" placeholder="Enter Email Address.."
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                  formControlName="email" [(ngModel)]="eMail">
+               
 
                 <button class="btn"
                 color="primary"
+                class="btn btn-primary btn-block"
                 text-center
                 block
                 [disabled]="!form.valid">Sign Up</button>
@@ -43,3 +51,5 @@
     
     
             </form>
+       </div>
+       </div>

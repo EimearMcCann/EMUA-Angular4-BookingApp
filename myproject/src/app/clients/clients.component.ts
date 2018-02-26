@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 import { UserService } from '../user.service';
 import {HttpClient} from '@angular/common/http';
-import { Router } from '@angular/router/src/router';
+import {Router} from '@angular/router';
 import {Http, Response, Headers} from '@angular/http';
 
 
@@ -15,9 +15,19 @@ export class ClientsComponent {
   Client_Fname:string='';
 
 
-  constructor(private httpClient:HttpClient){
+  constructor(private httpClient:HttpClient,
+              private router : Router){
     this.load();
   }
+
+
+  
+click(param, any): void
+{
+  
+  this.router.navigate(['update-product']);
+ 
+}
   
 ionViewWillEnter() : void{
   this.load

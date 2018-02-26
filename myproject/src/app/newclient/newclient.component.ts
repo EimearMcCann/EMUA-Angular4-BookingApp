@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, NgModel } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
