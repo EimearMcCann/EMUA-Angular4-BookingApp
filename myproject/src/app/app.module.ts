@@ -19,6 +19,9 @@ import { DateandtimeComponent } from './dateandtime/dateandtime.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { NewclientComponent } from './newclient/newclient.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
 
 const appRoutes:Routes = [
   {
@@ -83,6 +86,7 @@ const appRoutes:Routes = [
     DateandtimeComponent,
     UpdateProductComponent,
     NewclientComponent,
+    CalendarComponent,
     
   ],
   imports: [
@@ -91,7 +95,9 @@ const appRoutes:Routes = [
     HttpModule, 
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    CalendarModule.forRoot()
   ],
   providers: [UserService,
   AuthguardGuard],

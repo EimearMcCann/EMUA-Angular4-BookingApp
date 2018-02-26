@@ -1,26 +1,26 @@
 
-     <h1> Register</h1>
+     <h1 class="head"> Register</h1>
             <form [formGroup]="form" (ngSubmit)="saveUser()">
-                  <div>
+                  <div class="invention">
                     <label color="light">Username:</label>
                    <input type="text"
                           placeholder="Enter a username.."
                         formControlName="username"
                           [(ngModel)]="uName"><input>
                  </div>
-                  <div> <label color="light">Password:</label>
+                  <div class="invention"> <label color="light">Password:</label>
                     <input type="text"
                            placeholder="Enter a password.."
                            formControlName="password"
                            [(ngModel)]="pWord"><input></div>
-                <div>
+                <div class="invention">
                   <label color="light">Full Name:</label>
                    <input type="text"
                           placeholder="Enter Full Name.."
                           formControlName="name"
                           [(ngModel)]="fName"><input>
                 </div>
-                <div>
+                <div class="invention">
                   <label color="light">Contact Number:</label>
                    <input type="text"
                           placeholder="Enter Contact No.."
@@ -28,12 +28,12 @@
                           [(ngModel)]="pphone"><input>
                 </div>
 
-                <div>  <label color="light">Email Address:</label>
+                <div class="invention">  <label color="light">Email Address:</label>
                   <input type="text" placeholder="Enter Email Address.."
                   formControlName="email" [(ngModel)]="eMail"><input>
                 </div>
 
-                <button
+                <button class="btn"
                 color="primary"
                 text-center
                 block
