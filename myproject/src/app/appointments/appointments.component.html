@@ -1,7 +1,32 @@
+<header style = "text-align: right;">
+  <input type="button" value="Sign Out" [routerLink]="['/']" class="Homebtn">
+</header>
 
-<button (click) = "load()">View Appointments</button>
-
-<li *ngFor = "let item of items">
+<div style="overflow-x:auto;">
+  
+    <table style="width:100%" class="blueTable">
+      <thead>
+      <tr>
+        <td>Appointment ID</td>
+        <td>Name</td>
+        <td>Service Name</td> 
+        <td>Appointment Time</td>
+        <td>Appointment Date</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{ item.idAppointment }}</td>
+        <td>{{ item.Appointment_Name}}</td>
+        <td>{{ item.Appointment_Service}}</td>
+        <td>{{ item.Appointment_Time}}</td> 
+        <td>{{ item.Appointment_Date }}</td>
+      </tr>
+    </tbody>
+    </table>
+    </div>
+    
+<!--<li *ngFor = "let item of items">
   <h2>{{ item.idAppointment }}{{ item.Appointment_Name }}<br> {{ item.Appointment_Time}}<br> {{ item.Appointment_Date }} {{ item.Appointment_Service}}</h2> 
 
-</li>
+</li>-->

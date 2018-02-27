@@ -11,6 +11,7 @@ export class AppointmentsComponent {
 
   public items : Array<any> =[];
   constructor(public http : HttpClient) {
+    this.load();
 
   }
 

@@ -1,17 +1,10 @@
+<div id="fullPage">
 
+  <app-header> </app-header>
 
+  <router-outlet></router-outlet>
 
-<button (click) = "load()">View Clients</button>
+  <app-footer></app-footer>
 
-<!--<tr ng-repeat="item in items">
-<td>{{ item.Client_Lname }}
+</div>
 
-<td></tr>-->
-<li *ngFor = "let item of items">
-  <h3>{{ item.Client_Fname }} {{ item.Client_Lname}} {{ item.Client_Email }} {{ item.Client_Password}}</h3> 
-
-</li>
-
-<br>
-
-<app-appointments></app-appointments>

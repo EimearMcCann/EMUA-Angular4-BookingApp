@@ -1,0 +1,51 @@
+<header style = "text-align: right;">
+  <input type="button" value="Sign Out" [routerLink]="['/']" class="Homebtn">
+</header>
+
+<a routerLink = '/newclient'>+ Add Client</a>
+
+<h1>Clients</h1>
+
+
+<div style="overflow-x:auto;">
+<table style="width:100%" class = "table table-striped">
+  <thead>
+  <tr>
+    <td>Client ID</td>
+    <td>Username</td>
+    <td>Full Name</td> 
+    <td>Phone</td>
+    <td>Email</td>
+    <td></td>
+    
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let item of items">
+    
+    <td>{{item.userID}}</td>
+    <td>{{item.username}}</td>
+    <td>{{item.name}}</td> 
+    <td>{{item.phone}}</td>
+    <td>{{item.email}}</td>
+    <button (click)="click({record: item})">Update</button>
+   
+   <!-- <button (click) = "deleteClient (item.userID) "><a>DELETE</a></button>-->
+    
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+<!--button (click) = "load()">View Clients</button>
+
+<ul *ngFor = "let item of items">
+  <li>{{ item.Client_Fname }} {{ item.Client_Lname}} {{ item.Client_Email }} {{ item.Client_Password}}</li> 
+
+  </ul>
+
+<br>-->

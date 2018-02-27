@@ -1,0 +1,22 @@
+
+<form (submit)="loginaUser($event)">
+		<h2>User</h2>
+	<div class="input">
+		<label>Username</label>
+		<input type="text">
+	</div>
+	<div class="input">
+		<label>Password</label>
+		<input type="password">
+	</div>
+	<div class="input">
+    <input type="submit" value="Login" class= "loginbtn">
+    
+  <input type="button" value="Register" [routerLink]="['../register']" class="Registerbtn">
+  </div>
+  <a routerLink="../loginform">Admin</a>
+</form>
+
+
+ 
+
