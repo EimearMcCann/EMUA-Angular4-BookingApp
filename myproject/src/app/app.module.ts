@@ -22,12 +22,18 @@ import { NewclientComponent } from './newclient/newclient.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const appRoutes:Routes = [
+  {
+    path: 'app-welcome',
+    component: WelcomeComponent
+  },
   {
     path: 'userlogin',
     component: UserloginComponent
   },
+   
   {
     path: 'loginform',
     component: LoginformComponent
@@ -87,6 +93,7 @@ const appRoutes:Routes = [
     UpdateProductComponent,
     NewclientComponent,
     CalendarComponent,
+    WelcomeComponent,
     
   ],
   imports: [

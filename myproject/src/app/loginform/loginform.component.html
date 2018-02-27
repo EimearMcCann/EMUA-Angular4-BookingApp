@@ -1,15 +1,36 @@
+<div class="jumbotron">
+<a routerLink="../userlogin">User</a>
+
+
+
 <form (submit)="loginUser($event)">
 		<h2>Admin</h2>
-	<div class="input">
+	<div class="input" class="form-group" >
 		<label>Username</label>
-		<input type="text">
+		<input type="text" class="form-control" name="uName">
 	</div>
-	<div class="input">
+	<div class="input" class="form-group" >
 		<label>Password</label>
-		<input type="password">
+		<input type="password" class="form-control" name="pWord">
 	</div>
-	<div class="input">
-		<input type="submit" value="Login">
+	<br>
+	<div class="input" class="form-group" >
+		<input type="submit" value="Login" class="btn btn-primary btn-block" >
+		<button type="button" class="btn btn-warning btn-block">Cancel</button>
 	</div>
-	<a routerLink="../userlogin">User</a>
+
+	
+
+
+	<div class="container" style="background-color:f1f1f1">
+	
+		<span class="psw">Forgot <a href="#">password?</a></span>
+		
+	</div>
+	<div class="container" style="background-color:f1f1f1">
+			<label>
+					<input type="checkbox" checked="checked" name="remember"> Remember Me
+				</label>
+	</div>
 </form>
+</div>
