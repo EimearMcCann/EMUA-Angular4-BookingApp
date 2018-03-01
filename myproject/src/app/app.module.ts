@@ -17,7 +17,6 @@ import { RegisterComponent } from './register/register.component';
 import { UserservicesComponent } from './userservices/userservices.component';
 import { DateandtimeComponent } from './dateandtime/dateandtime.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UpdateProductComponent } from './update-product/update-product.component';
 import { NewclientComponent } from './newclient/newclient.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -68,10 +67,6 @@ const appRoutes:Routes = [
     component: AppointmentsComponent
   },
   {
-    path:'update-product',
-    component: UpdateProductComponent
-  },
-  {
     path:'newclient',
     component: NewclientComponent
   }
@@ -90,7 +85,6 @@ const appRoutes:Routes = [
     RegisterComponent,
     UserservicesComponent,
     DateandtimeComponent,
-    UpdateProductComponent,
     NewclientComponent,
     CalendarComponent,
     WelcomeComponent,

@@ -1,8 +1,18 @@
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <header style = "text-align: right;">
   <input type="button" value="Sign Out" [routerLink]="['/']" class="Homebtn">
+  <input type="button" value="Home" [routerLink]="['/dashboard']" >
 </header>
 
+<br>
+
 <a routerLink = '/newclient'>+ Add Client</a>
+
 
 <h1>Clients</h1>
 
@@ -12,8 +22,8 @@
   <thead>
   <tr>
     <td>Client ID</td>
-    <td>Username</td>
-    <td>Full Name</td> 
+    <td>Full Name</td>
+    <td>Username</td> 
     <td>Phone</td>
     <td>Email</td>
     <td></td>
@@ -21,14 +31,14 @@
   </tr>
 </thead>
 <tbody>
-  <tr *ngFor="let item of items">
-    
+  <tr *ngFor="let item of items  let index=index" (click)="checking(index)">
+
     <td>{{item.userID}}</td>
+    <td>{{item.name}}</td>
     <td>{{item.username}}</td>
-    <td>{{item.name}}</td> 
     <td>{{item.phone}}</td>
     <td>{{item.email}}</td>
-    <button (click)="click({record: item})">Update</button>
+   
    
    <!-- <button (click) = "deleteClient (item.userID) "><a>DELETE</a></button>-->
     
@@ -36,6 +46,74 @@
 </tbody>
 </table>
 </div>
+
+<div class="divy"></div>
+
+<form [formGroup]="form"  (ngSubmit)="saveUser()">
+    <h2 class="head text-center"> Update Client</h2>
+
+    <div class="form-row">
+        <div class="form-group col-md-1">
+    <label color="light">Client ID:</label>
+   <input id="userID" class="form-control"
+        formControlName="userID" name="userID"
+          [(ngModel)]="selectedItem.userID">
+        </div>
+        <div class="form-group col-md-5">
+     <label color="light">Username:</label>
+    <input id="uName" class="form-control"
+         formControlName="uName" name="username"
+           [(ngModel)]="selectedItem.username">
+          </div>
+          <div class="form-group col-md-5">
+   <label color="light">Password:</label>
+     <input id="password" class="form-control"
+            formControlName="pWord" name="password"
+            [(ngModel)]="selectedItem.password">
+          </div> 
+          <div class="form-group col-md-4">
+   <label color="light">Full Name:</label>
+    <input id="name"  class="form-control"
+           formControlName="fName" name="name"
+           [(ngModel)]="selectedItem.name">
+          </div>
+          <div class="form-group col-md-3">
+   <label color="light">Contact Number:</label>
+    <input id="phone"  class="form-control"
+           formControlName="pphone" name="phone"
+           [(ngModel)]="selectedItem.phone">
+          </div>
+          <div class="form-group col-md-4">
+ <label color="light">Email Address:</label>
+   <input id="email"  class="form-control" name="email"
+   formControlName="eMail" [(ngModel)]="selectedItem.email">
+          </div>
+
+ <button
+ type="ngSubmit"
+ class="btn btn-primary btn-block"
+ color="primary"
+ text-center
+ block
+ [disabled]="!form.valid">Update</button>
+
+ <button  (click)="deleteUser()" class="btn btn-danger btn-block" >Delete</button>﻿
+ 
+
+</div>
+ </form>
+
+
+
+
+
+
+<!--<div class="row">
+  <pre>
+    {{items | json}}
+  </pre>
+</div>-->
+
 
 
 
