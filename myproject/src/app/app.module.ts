@@ -15,13 +15,14 @@ import { ClientsComponent } from './clients/clients.component';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { RegisterComponent } from './register/register.component';
 import { UserservicesComponent } from './userservices/userservices.component';
-import { DateandtimeComponent } from './dateandtime/dateandtime.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewclientComponent } from './newclient/newclient.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { NewAppComponent } from './new-app/new-app.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 const appRoutes:Routes = [
   {
@@ -46,10 +47,6 @@ const appRoutes:Routes = [
     component: UserservicesComponent
   },
   {
-    path: 'dateandtime',
-    component: DateandtimeComponent
-  },
-  {
     path: '',
     component: LoginformComponent
   },
@@ -69,7 +66,17 @@ const appRoutes:Routes = [
   {
     path:'newclient',
     component: NewclientComponent
+  },
+  {
+    path:'app-new-app',
+    component: NewAppComponent
+  },
+  {
+    path:'app-user-dashboard',
+    component:  UserDashboardComponent
   }
+ 
+  
 ]
 
 @NgModule({
@@ -84,10 +91,12 @@ const appRoutes:Routes = [
     UserloginComponent,
     RegisterComponent,
     UserservicesComponent,
-    DateandtimeComponent,
     NewclientComponent,
     CalendarComponent,
     WelcomeComponent,
+    NewAppComponent,
+    UserDashboardComponent
+
     
   ],
   imports: [

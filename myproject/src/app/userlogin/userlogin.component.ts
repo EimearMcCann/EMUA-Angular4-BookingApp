@@ -21,7 +21,7 @@ export class UserloginComponent implements OnInit {
 
     if (username =='user' && password =='user'){
       this.user.setUserLoggedIn();
-      this.router.navigate(['userservices']);
+      this.router.navigate(['app-user-dashboard']);
   }
 }
 }

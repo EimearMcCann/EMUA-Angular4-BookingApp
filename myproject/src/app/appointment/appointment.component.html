@@ -5,12 +5,14 @@
 </h2>
 <div class="container">
 <div class="jumbotron">
+  
 
 <form [formGroup]="form" (ngSubmit)="saveUser()">
      
       <label color="light"> New Username:</label>
        <input type="text" name="username" class="form-control"
               placeholder="Enter a username.."
+              pattern="[a-zA-Z][a-zA-Z]+"
             formControlName="username"
             required minlength="5"
               [(ngModel)]="uName">
@@ -28,6 +30,7 @@
       <label color="light">Clients Full Name:</label>
        <input type="text" class="form-control"
               placeholder="Enter Full Name.."
+              pattern="[a-zA-Z][a-zA-Z]+"
               formControlName="name"
               [(ngModel)]="fName">
         <br>

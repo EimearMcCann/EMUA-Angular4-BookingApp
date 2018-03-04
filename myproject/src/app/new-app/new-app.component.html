@@ -1,0 +1,51 @@
+<a routerLink = "/app-user-dashboard">Back</a>
+
+<h2 class="header text-center">
+  Book Appointment
+</h2>
+<div class="container">
+<div class="jumbotron">
+
+<form [formGroup]="form" (ngSubmit)="saveAppointment()">
+     
+      <label color="light"> Your Name:</label>
+       <input type="text" name="Appointment_Name" class="form-control"
+              placeholder="Enter your name"
+              pattern="[a-zA-Z][a-zA-Z]+"
+            formControlName="Appointment_Name"
+            required minlength="5"
+              [(ngModel)]="AppointmentName">
+            
+        <br>
+      <label color="light"> Appointment Service:</label>
+        <input type="text" class="form-control"
+               placeholder="Service Required"
+               formControlName="Appointment_Service"
+               [(ngModel)]="AppointmentService">
+        <br>
+    
+      <label color="light">Appointment Time:</label>
+       <input type="text" class="form-control"
+              placeholder="Enter Time.. ie(9.00)"
+              formControlName="Appointment_Time"
+              [(ngModel)]="AppointmentTime">
+        <br>
+    
+      <label color="light">Appointment Date:</label>
+       <input type="text" class="form-control"
+              formControlName="Appointment_Date" 
+              [(ngModel)]="AppointmentDate">
+      <br>
+   
+
+    <button (click)="ngSubmit" (click)="resetFields()"
+    color="primary"
+    class="btn btn-primary btn-block"
+    text-center
+    block
+    [disabled]="!form.valid">Submit</button>
+   
+
+</form>
+</div>
+</div>

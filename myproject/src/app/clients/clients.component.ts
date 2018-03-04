@@ -146,23 +146,19 @@ ionViewWillEnter() : void{
      }
 
 
-    /* deleteUser(username : string, password : string, name: string, email: string, phone: string) : void
+    deleteUser() : void
   {
 
     let
-    uName   : string    = this.form.controls["username"].value,
-    pWord   : string    = this.form.controls["password"].value,
-    fName   : string    = this.form.controls["name"].value,
-    eMail   : string    = this.form.controls["email"].value,
-    pphone   : string    = this.form.controls["phone"].value;
+    userID   : string    = this.form.controls["userID"].value
     
 
      let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
-         options  : any   = { "key" : "delete", "username" : username, "password" : password, "name" : name, "email" : email, "phone": phone },
+         options  : any   = { "key" : "delete", "userID" : userID },
          url       : any        = this.baseURI + "manage-dataAWS.php";
         // url       : any        = this.URL + "/add";
 
-     this.httpClient.delete(url, JSON.stringify(options), headers)
+     this.httpClient.post(url, JSON.stringify(options), headers)
      .subscribe((data : any) =>
      {
         // If the request was successful notify the user
@@ -171,12 +167,31 @@ ionViewWillEnter() : void{
      },
      (error : any) =>
      {
-       console.log(username);
+       console.log(userID);
        console.log(error);
        // this.sendNotification('Something went wrong!');
      });
   }
-*/
+
+/*deleteEntry() : void
+{
+   let name      : string 	= this.form.controls["name"].value,
+       headers 	: any		= new HttpHeaders({ 'Content-Type': 'application/json' }),
+       options 	: any		= { "key" : "delete", "userID" : this.userID},
+       url       : any      	= this.baseURI + "manage-data.php";
+
+   this.httpClient
+   .post(url, JSON.stringify(options), headers)
+   .subscribe(data =>
+   {
+      this.hideForm     = true;
+      console.log(`Congratulations the technology: ${name} was successfully deleted`);
+   },
+   (error : any) =>
+   {
+      console.log('Something went wrong!');
+   }); }*/
+
 
    resetFields() : void
    {
