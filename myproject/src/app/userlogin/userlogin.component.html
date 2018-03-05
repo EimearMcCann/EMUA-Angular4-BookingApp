@@ -1,22 +1,22 @@
-
+<div class="jumbotron">
 <form (submit)="loginaUser($event)">
 		<h2>User</h2>
-	<div class="input">
+	<div class="input" class="form-group">
 		<label>Username</label>
-		<input type="text">
+		<input type="text" class="form-control" >
 	</div>
-	<div class="input">
+	<div class="input" class="form-group">
 		<label>Password</label>
-		<input type="password">
+		<input type="password" class="form-control" >
 	</div>
-	<div class="input">
-    <input type="submit" value="Login" class= "loginbtn">
+	<div class="input" class="form-group">
+    <input type="submit" value="Login" class= "btn btn-primary btn-block">
     
-  <input type="button" value="Register" [routerLink]="['../register']" class="Registerbtn">
+  <input type="button" value="Register" [routerLink]="['../register']" class="btn btn-warning btn-block">
   </div>
   <a routerLink="../loginform">Admin</a>
 </form>
 
-
+</div>
  
 
