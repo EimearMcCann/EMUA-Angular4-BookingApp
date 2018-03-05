@@ -107,7 +107,9 @@ const appRoutes:Routes = [
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    CalendarModule.forRoot()
+    CalendarModule.forRoot(),
+    
+  
   ],
   providers: [UserService,
   AuthguardGuard],

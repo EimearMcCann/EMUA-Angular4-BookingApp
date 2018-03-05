@@ -1,30 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { Component } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Http, Headers } from '@angular/http';
+
 
 @Component({
   selector: 'app-userlogin',
   templateUrl: './userlogin.component.html',
   styleUrls: ['./userlogin.component.css']
 })
-export class UserloginComponent implements OnInit {
+export class UserloginComponent{
 
-  constructor(private router: Router, private user: UserService) { }
-
-  ngOnInit() {
-  }
-  loginaUser(e){
-    e.preventDefault();
-    console.log(e);
-    var username = e.target.elements[0].value;
-    var password = e.target.elements[1].value;
-
-    if (username =='user' && password =='user'){
-      this.user.setUserLoggedIn();
-      this.router.navigate(['app-user-dashboard']);
-  }
 }
-}
-
-
-
