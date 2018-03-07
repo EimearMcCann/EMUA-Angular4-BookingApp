@@ -17,12 +17,12 @@ import { RegisterComponent } from './register/register.component';
 import { UserservicesComponent } from './userservices/userservices.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewclientComponent } from './newclient/newclient.component';
-import { CalendarComponent } from './calendar/calendar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NewAppComponent } from './new-app/new-app.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { AvailComponent } from './avail/avail.component';
 
 const appRoutes:Routes = [
   {
@@ -74,6 +74,10 @@ const appRoutes:Routes = [
   {
     path:'app-user-dashboard',
     component:  UserDashboardComponent
+  },
+  {
+    path:'app-avail',
+    component:   AvailComponent
   }
  
   
@@ -92,10 +96,10 @@ const appRoutes:Routes = [
     RegisterComponent,
     UserservicesComponent,
     NewclientComponent,
-    CalendarComponent,
     WelcomeComponent,
     NewAppComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    AvailComponent
 
     
   ],

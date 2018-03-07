@@ -5,24 +5,35 @@
 </h2>
 <div class="container">
 <div class="jumbotron">
+  
+
+    
 
 <form [formGroup]="form" (ngSubmit)="saveAppointment()">
      
       <label color="light"> Your Name:</label>
        <input type="text" name="Appointment_Name" class="form-control"
               placeholder="Enter your name"
-              pattern="[a-zA-Z][a-zA-Z]+"
             formControlName="Appointment_Name"
             required minlength="5"
               [(ngModel)]="AppointmentName">
             
         <br>
-      <label color="light"> Appointment Service:</label>
+        <div class="form-group">
+        <label for="Appointment_Service"> Appointment Service:</label>
+        <select id="Appointment_Service"  formControlName="Appointment_Service"
+               [(ngModel)]="AppointmentService" class="form-control"> 
+               <option *ngFor="let item of items" [value]= "item.idServices">
+                  {{item.Service_Name}}
+              </option>
+</select>
+        </div>
+     <!-- <label color="light"> Appointment Service:</label>
         <input type="text" class="form-control"
                placeholder="Service Required"
                formControlName="Appointment_Service"
                [(ngModel)]="AppointmentService">
-        <br>
+        <br>-->
     
       <label color="light">Appointment Time:</label>
        <input type="text" class="form-control"

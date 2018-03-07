@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormGroup, Validators, FormBuilder, NgModel } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
+import {forkJoin} from 'rxjs/observable/forkJoin';
 @Component({
   selector: 'app-new-app',
   templateUrl: './new-app.component.html',
@@ -13,6 +14,9 @@ export class NewAppComponent {
 
   // Define FormGroup property for managing form validation / data retrieval
   public form : FormGroup;
+
+  public items : Array<any>=[];
+  public times :Array<any>=[];
 
   //Model for managing fields
    public AppointmentName : any;
@@ -32,9 +36,10 @@ export class NewAppComponent {
 
   // Initialise module classes
   constructor( public http       : HttpClient,
-              public fb         : FormBuilder,
-           )
+              public fb         : FormBuilder)
   {
+
+    this.load();
 
    
 
@@ -58,7 +63,7 @@ export class NewAppComponent {
   {
      let
          AppointmentName  : string= this.form.controls["Appointment_Name"].value,
-         AppointmentService : string= this.form.controls["Appointment_Service"].value,
+         AppointmentService :string= this.form.controls["Appointment_Service"].value,
          AppointmentTime   : string= this.form.controls["Appointment_Time"].value,
          AppointmentDate   : string= this.form.controls["Appointment_Date"].value;
         
@@ -114,6 +119,21 @@ export class NewAppComponent {
      this.AppointmentTime   = "";
      this.AppointmentDate   = "";
   }
+
+
+ 
+
+  load():void{
+    this.http.get('http://localhost/retrieveServicesAWS.php')
+    .subscribe(
+      (data:any[])=>{
+        console.log(data);
+        this.items= data;
+      },
+      (error:any) =>{
+        console.dir(error);
+      });
+
   
 
 
@@ -123,4 +143,5 @@ export class NewAppComponent {
    */
 
  
- }
+ }}
+
