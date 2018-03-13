@@ -1,4 +1,4 @@
-<select name="apps" ngModel>
+<select name="apps" [ngModel]>
   <option *ngFor = "let app of apps" [value]= "app.idAvail">
  {{ app.Avail_Date }}
   </option>

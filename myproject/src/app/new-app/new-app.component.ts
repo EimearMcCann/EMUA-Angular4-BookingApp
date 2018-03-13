@@ -124,7 +124,7 @@ export class NewAppComponent {
  
 
   load():void{
-    this.http.get('http://localhost/retrieveServicesAWS.php')
+    this.http.get('http://localhost/retrieve-availAWS.php')
     .subscribe(
       (data:any[])=>{
         console.log(data);
