@@ -12,11 +12,11 @@
 <form [formGroup]="form" (ngSubmit)="saveAppointment()">
      
       <label color="light"> Your Name:</label>
-       <input type="text" name="Appointment_Name" class="form-control"
+       <input type="text" name="Appoint_Username" class="form-control"
               placeholder="Enter your name"
-            formControlName="Appointment_Name"
+            formControlName="Appoint_Username"
             required minlength="5"
-              [(ngModel)]="AppointmentName">
+              [(ngModel)]="AppointmentUsername">
             
         <br>
         <div class="form-group">
@@ -38,8 +38,8 @@
         <br>-->
     
     <div class="form-group">
-    <label for="Appointment_Time">Appointment Time:</label>
-     <select id="Appointment_Time" formControlName="Appointment_Time"
+    <label for="Appoint_Time">Appointment Time:</label>
+     <select id="Appointment_Time" formControlName="Appoint_Time"
             [(ngModel)]="AppointmentTime" class="form-control">
             <option *ngFor="let item of items" [value] ="item.Appointment_Time">
               {{item.Appointment_Time}}
@@ -50,8 +50,8 @@
 
     
     <div class="form-group">
-    <label for="Appointment_Date">Appointment Time:</label>
-     <select id="Appointment_Date" formControlName="Appointment_Date"
+    <label for="Appoint_Date">Appointment Date:</label>
+     <select id="Appointment_Date" formControlName="Appoint_Date"
             [(ngModel)]="AppointmentDate" class="form-control">
             <option *ngFor="let item of items" [value] ="item.Appointment_Date">
               {{item.Appointment_Date}}

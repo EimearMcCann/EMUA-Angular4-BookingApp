@@ -19,10 +19,10 @@ export class NewAppComponent {
   public times :Array<any>=[];
 
   //Model for managing fields
-   public AppointmentName : any;
    public AppointmentService: any;
    public AppointmentTime : any;
    public AppointmentDate : any;
+   public AppointmentUsername : any;
 
    // Flag to be used for checking whether we are adding/editing an entry
    public isEdited               : boolean = false;
@@ -45,10 +45,10 @@ export class NewAppComponent {
 
      // Create form builder validation rules
      this.form = fb.group({
-        "Appointment_Name"       : ["", Validators.required],
         "Appointment_Service"       : ["", Validators.required],
-        "Appointment_Time"           : ["", Validators.required],
-        "Appointment_Date"          : ["", Validators.required]
+        "Appoint_Time"           : ["", Validators.required],
+        "Appoint_Date"          : ["", Validators.required],
+        "Appoint_Username"       : ["", Validators.required]
         
      });
   }
@@ -62,13 +62,13 @@ export class NewAppComponent {
   saveAppointment() : void
   {
      let
-         AppointmentName  : string= this.form.controls["Appointment_Name"].value,
          AppointmentService :string= this.form.controls["Appointment_Service"].value,
-         AppointmentTime   : string= this.form.controls["Appointment_Time"].value,
-         AppointmentDate   : string= this.form.controls["Appointment_Date"].value;
+         AppointmentTime   : string= this.form.controls["Appoint_Time"].value,
+         AppointmentDate   : string= this.form.controls["Appoint_Date"].value,
+         AppointmentUsername  : string= this.form.controls["Appoint_Username"].value;
         
 
-     this.createAppointment(AppointmentName, AppointmentService, AppointmentTime, AppointmentDate);
+     this.createAppointment( AppointmentService, AppointmentTime, AppointmentDate, AppointmentUsername);
   }
 
   /**
@@ -76,18 +76,18 @@ export class NewAppComponent {
    * Use angular's http post method to submit the record data
    *
    */
-  createAppointment(Appointment_Name: string, Appointment_Service : string, Appointment_Time: string, AppointmenDate: string) : void
+  createAppointment(Appointment_Service : string, Appoint_Time: string, Appoint_Date: string, Appoint_Username: string) : void
   {
 
     let
-    AppointmentName   :string= this.form.controls["Appointment_Name"].value,
     AppointmentService :string= this.form.controls["Appointment_Service"].value,
-    AppointmentTime   :string= this.form.controls["Appointment_Time"].value,
-    AppointmentDate  : string= this.form.controls["Appointment_Date"].value;
+    AppointmentTime   :string= this.form.controls["Appoint_Time"].value,
+    AppointmentDate  : string= this.form.controls["Appoint_Date"].value,
+    AppointmentUsername   :string= this.form.controls["Appoint_Username"].value;
     
 
      let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
-         options  : any   = { "key" : "addAppointment", "Appointment_Name" : Appointment_Name, "Appointment_Service" : Appointment_Service, "Appointment_Time" : Appointment_Time, "Appointment_Date" : AppointmenDate},
+         options  : any   = { "key" : "addAppointment","Appointment_Service" : Appointment_Service, "Appoint_Time" : Appoint_Time, "Appoint_Date" : Appoint_Date,  "Appoint_Username" : Appoint_Username},
          url       : any        = this.baseURI + "manage-dataAWS.php";
         // url       : any        = this.URL + "/add";
 
@@ -114,10 +114,11 @@ export class NewAppComponent {
   resetFields() : void
   {
   
-     this.AppointmentName    = "";
+ 
      this.AppointmentService    = ""; 
      this.AppointmentTime   = "";
      this.AppointmentDate   = "";
+     this.AppointmentUsername    = "";
   }
 
 

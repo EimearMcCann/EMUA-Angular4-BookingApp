@@ -7,7 +7,6 @@
     <table style="width:100%" class="blueTable">
       <thead>
       <tr>
-        <td>Appointment ID</td>
         <td>Name</td>
         <td>Service Name</td> 
         <td>Appointment Time</td>
@@ -16,11 +15,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of items">
-        <td>{{ item.idAppointment }}</td>
-        <td>{{ item.Appointment_Name}}</td>
+       <!-- <td>{{ item.AppointmentID }}</td>-->
+       <td>{{ item.Appoint_Username}}</td>
         <td>{{ item.Appointment_Service}}</td>
-        <td>{{ item.Appointment_Time}}</td> 
-        <td>{{ item.Appointment_Date }}</td>
+        <td>{{ item.Appoint_Time}}</td> 
+        <td>{{ item.Appoint_Date }}</td>
       </tr>
     </tbody>
     </table>
