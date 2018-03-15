@@ -14,11 +14,12 @@ import { Router } from '@angular/router';
 })
 export class ClientsComponent {
   selectedItem = {
-    userID: '',
-    name: '',
-    phone: '',
     username: '',
-    email: ''
+    password: '',
+    name: '',
+    email: '',
+    phone: ''
+
   };
   public items : Array<any>=[];
   Client_Fname:string='';
@@ -29,7 +30,7 @@ export class ClientsComponent {
 
 
   //Model for managing fields
- public userID : any ;
+ //public userID : any ;
    public username : any;
    public password : any;
    public name : any;
@@ -57,7 +58,7 @@ export class ClientsComponent {
     
     
     this.form = fb.group({
-      "userID"         : ["", Validators.required],
+     // "userID"         : ["", Validators.required],
        "uName"       : ["", Validators.required],
        "pWord"       : ["", Validators.required],
        "fName"           : ["", Validators.required],
@@ -108,24 +109,24 @@ ionViewWillEnter() : void{
    saveUser() : void
    {
       let
-         userID  : string = this.form.controls["userID"].value,
+        // userID  : string = this.form.controls["userID"].value,
           uName   : string    = this.form.controls["uName"].value,
           pWord   : string    = this.form.controls["pWord"].value,
           fName   : string = this.form.controls["fName"].value,
           eMail   : string    = this.form.controls["eMail"].value,
           pphone  : string    = this.form.controls["pphone"].value;
 
-          this.updateUser(userID, uName, pWord, fName, eMail, pphone);
+          this.updateUser( uName, pWord, fName, eMail, pphone);
 
    }  
 
  
    
-   updateUser(userID : string, uName : string, pWord : string, fName: string, eMail: string, pphone: string) : void
+   updateUser( uName : string, pWord : string, fName: string, eMail: string, pphone: string) : void
    {    
      
       let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
-          options  : any   = { "key" : "update", "username" : uName, "password" : pWord, "name" : fName, "email" : eMail, "phone": pphone, "userID" : userID },
+          options  : any   = { "key" : "update", "username" : uName, "password" : pWord, "name" : fName, "email" : eMail, "phone": pphone },
           url       : any        = this.baseURI + "manage-dataAWS.php";
      
  
@@ -150,11 +151,11 @@ ionViewWillEnter() : void{
   {
 
     let
-    userID   : string    = this.form.controls["userID"].value
+    username  : string    = this.form.controls["uName"].value
     
 
      let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
-         options  : any   = { "key" : "delete", "userID" : userID },
+         options  : any   = { "key" : "delete", "username": username},
          url       : any        = this.baseURI + "manage-dataAWS.php";
         // url       : any        = this.URL + "/add";
 
@@ -167,7 +168,7 @@ ionViewWillEnter() : void{
      },
      (error : any) =>
      {
-       console.log(userID);
+       console.log(username);
        console.log(error);
        // this.sendNotification('Something went wrong!');
      });
