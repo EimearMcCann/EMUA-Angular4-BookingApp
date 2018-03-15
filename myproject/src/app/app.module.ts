@@ -23,6 +23,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { NewAppComponent } from './new-app/new-app.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AvailComponent } from './avail/avail.component';
+import { AvailabilityComponent } from './availability/availability.component';
 
 const appRoutes:Routes = [
   {
@@ -43,8 +44,8 @@ const appRoutes:Routes = [
     component: RegisterComponent
   },
   {
-    path: 'userservices',
-    component: UserservicesComponent
+    path: 'app-availability',
+    component: AvailabilityComponent
   },
   {
     path: '',
@@ -99,7 +100,8 @@ const appRoutes:Routes = [
     WelcomeComponent,
     NewAppComponent,
     UserDashboardComponent,
-    AvailComponent
+    AvailComponent,
+    AvailabilityComponent
 
     
   ],
