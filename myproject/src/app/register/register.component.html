@@ -1,44 +1,56 @@
 
      <h1 class="header text-center"> Register</h1>
      <div class="container">
-       <div class="jumbotron">
+       <div class="jumbotron vertical-center col=sm-10" >
         
             <form [formGroup]="form" (ngSubmit)="saveUser()">
                  
                     <label color="light">Username:</label>
+                    <div class="col-sm-10">
                    <input type="text" class="form-control" 
                     placeholder="Enter a username.."
                     formControlName="username"
                           [(ngModel)]="uName">
+                    </div>
+
                  
                    <label color="light">Password:</label>
+                   <div class="col-sm-10">
                     <input type="text" class="form-control"
                            placeholder="Enter a password.."
                            formControlName="password"
                            [(ngModel)]="pWord">
+                   </div>
+
                 
                   <label color="light">Full Name:</label>
+                  <div class="col-sm-10">
                    <input type="text" class="form-control"
                           placeholder="Enter Full Name.."
                           formControlName="name"
                           [(ngModel)]="fName">
+                  </div>
                 
                 
                   <label color="light">Contact Number:</label>
+                  <div class="col-sm-10">
                    <input type="text" class="form-control"
                           placeholder="Enter Contact No.."
                           formControlName="phone"
                           [(ngModel)]="pphone">
+                  </div>
                
 
                  <label color="light">Email Address:</label>
+                 <div class="col-sm-10">
                   <input type="text" class="form-control" placeholder="Enter Email Address.."
                   formControlName="email" [(ngModel)]="eMail">
+                 </div>
                
 
                 <button class="btn"
                 color="primary"
-                class="btn btn-primary btn-block"
+                class="btn btn-primary col-sm-10"
                 text-center
                 block
                 [disabled]="!form.valid">Sign Up</button>
