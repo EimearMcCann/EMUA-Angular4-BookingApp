@@ -22,8 +22,9 @@ import { CalendarModule } from 'angular-calendar';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NewAppComponent } from './new-app/new-app.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-import { AvailComponent } from './avail/avail.component';
 import { AvailabilityComponent } from './availability/availability.component';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+
 
 const appRoutes:Routes = [
   {
@@ -76,10 +77,7 @@ const appRoutes:Routes = [
     path:'app-user-dashboard',
     component:  UserDashboardComponent
   },
-  {
-    path:'app-avail',
-    component:   AvailComponent
-  }
+
  
   
 ]
@@ -100,7 +98,6 @@ const appRoutes:Routes = [
     WelcomeComponent,
     NewAppComponent,
     UserDashboardComponent,
-    AvailComponent,
     AvailabilityComponent
 
     
@@ -114,6 +111,7 @@ const appRoutes:Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
+    ToastModule.forRoot() 
     
   
   ],

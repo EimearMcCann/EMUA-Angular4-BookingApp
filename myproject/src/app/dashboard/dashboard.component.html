@@ -3,20 +3,34 @@
 </header>
 
 
+<div class="container">
+  <div class="jumbotron">
+
+
+
+
 <input type="button" value="View Clients" [routerLink]="['../clients']" class="Clientbtn" style="margin-left:auto">
 
-<br> <br> <p> 
+<br> <p> 
 
 
   
 </p>
-<input type="button" value="View Appointments" [routerLink]="['../appointments']" class="btn" style="margin-right:auto">
+<button [routerLink]="['../appointments']" class="btn btn-primary">View Appointments </button>
+<br>
+<p>
 
 
-<input type="button" value="View Availability" [routerLink]="['../app-avail']" class="btn" style="margin-right:auto">
+</p>
+<input type="button" value="Add Availabiliy" [routerLink]="['../app-availability']" class="Availbtn" style="margin-right:auto">
+<br>
+<p>
 
-<input type="button" value="Add Availabiliy" [routerLink]="['../app-availability']" class="btn" style="margin-right:auto">
 
+
+</p>
+</div>
+</div>
 
 <p>
   You are Authenticated!!

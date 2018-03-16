@@ -4,10 +4,10 @@
   Add New Client
 </h2>
 <div class="container">
-<div class="jumbotron">
+<div class="jumbotron"> 
 
 <form [formGroup]="form" (ngSubmit)="saveUser()">
-     
+
       <label color="light"> New Username:</label>
        <input type="text" name="username" class="form-control"
               placeholder="Enter a username.."
@@ -46,14 +46,14 @@
       formControlName="email" [(ngModel)]="eMail">
    <br>
 
-    <button
-    color="primary"
+    <button color="primary"
     class="btn btn-primary btn-block"
     text-center
     block
-    [disabled]="!form.valid">Submit</button>
-    <button class="btn" (click)="resetFields()">Reset</button>
+    [disabled]="!form.valid" >Submit</button>
 
+    <button class="btn" (click)="resetFields()">Reset</button>
+ 
 </form>
 </div>
 </div>

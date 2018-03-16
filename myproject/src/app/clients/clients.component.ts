@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewContainerRef } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 
 
@@ -51,10 +52,16 @@ export class ClientsComponent {
 
   constructor(private httpClient:HttpClient,
               private router : Router,
-              public fb         : FormBuilder
-            ){
+              public fb         : FormBuilder,
+              public toastr : ToastsManager,
+              vcr: ViewContainerRef){
+
+  this.toastr.setRootViewContainerRef(vcr);
+    
+      
               
     this.load();
+    
     
     
     this.form = fb.group({
@@ -65,6 +72,7 @@ export class ClientsComponent {
        "eMail"          : ["", Validators.required],
        "pphone"          : ["", Validators.required]
     });
+    
     
     
   }
@@ -136,12 +144,15 @@ ionViewWillEnter() : void{
          // If the request was successful notify the user
          this.hideForm   = true;
          console.log(uName);
+         this.toastr.warning('User Updated!')
         // this.sendNotification(`Congratulations the user: ${username} was successfully added`);
       },
       (error : any) =>
       {
        console.log(uName);
         console.log(error);
+        this.toastr.error('Something went wrong!!!')
+
         // this.sendNotification('Something went wrong!');
       });
      }

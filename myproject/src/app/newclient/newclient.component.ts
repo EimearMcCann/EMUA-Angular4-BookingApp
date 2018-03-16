@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, NgModel } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 
 @Component({
@@ -36,8 +37,11 @@ export class NewclientComponent {
   // Initialise module classes
   constructor( public http       : HttpClient,
               public fb         : FormBuilder,
-           )
+              public toastr : ToastsManager,
+              vcr: ViewContainerRef)
+           
   {
+    
 
    
 
@@ -49,7 +53,26 @@ export class NewclientComponent {
         "email"          : ["", Validators.required],
         "phone"          : ["", Validators.required]
      });
-  }
+     this.toastr.setRootViewContainerRef(vcr);
+    }
+      
+    showSuccess() {
+      this.toastr.success('You are awesome!', 'Success!');
+    }
+    showError() {
+      this.toastr.error('This is not good!', 'Oops!');
+    }
+    showWarning() {
+      this.toastr.warning('You are being warned.', 'Alert!');
+    }
+    showInfo() {
+      this.toastr.info('Just some information for you.');
+    }
+    
+    showCustom() {
+      this.toastr.custom('<span style="color: red">Message in red.</span>', null, {enableHTML: true});
+    }
+  
 
 
   /**
@@ -93,14 +116,17 @@ export class NewclientComponent {
      this.http.post(url, JSON.stringify(options), headers)
      .subscribe((data : any) =>
      {
-        // If the request was successful notify the user
-        this.hideForm   = true;
+      this.toastr.success( 'New Client Added!!');
+        this.resetFields();
        // this.sendNotification(`Congratulations the user: ${username} was successfully added`);
      },
      (error : any) =>
      {
        console.log(username);
        console.log(error);
+       this.toastr.error('Username Taken!, Try another username..');
+       this.resetUser();
+
        // this.sendNotification('Something went wrong!');
      });
   }
@@ -117,6 +143,10 @@ export class NewclientComponent {
      this.fName    = ""; 
      this.eMail    = "";
      this.pphone    = "";
+  }
+
+  resetUser(): void{
+    this.uName="";
   }
 
 

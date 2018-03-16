@@ -1,6 +1,6 @@
 <a routerLink = "/app-user-dashboard">Back</a>
 
-<h2 class="header text-center">
+<h2 class="page-header text-center">
   Add Availability
 </h2>
 <div class="container">
@@ -12,18 +12,21 @@
     <form [formGroup]="form" (ngSubmit)="saveAvail()">
 
 
+      <div class="form-group col-md-3">
         <label color="light"> Update Date Availability:</label>
         <input type="date" name="Appointment_Date" class="form-control"
                placeholder="Update Date Availability"
              formControlName="Appointment_Date"
                [(ngModel)]="appointmentDate">
-               <br>
-
+              </div>
+              
+               <div class="form-group col-md-3">
                <label color="light"> Update Time Availability:</label>
-               <input type="text" name="Appointment_Time" class="form-control"
+               <input type="time" name="Appointment_Time" class="form-control"
                       placeholder="Update Time Availability"
                     formControlName="Appointment_Time"
                       [(ngModel)]="appointmentTime">
+                    </div>
 
 
    <button (click)="ngSubmit"
@@ -36,5 +39,27 @@
         
 
     </form>
+
+    
 </div>
 </div>
+<div style="overflow-x:auto;">
+  
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search For Dates..">
+
+  <table style="width:100%" class="table-striped" id="myTable">
+    <thead>
+    <tr>
+      <td>Appointment Date</td>
+      <td>Appointment Time</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+     <!-- <td>{{ item.AppointmentID }}</td>-->
+      <td>{{ item.Appointment_Date}}</td> 
+      <td>{{ item.Appointment_Time}}</td>
+    </tr>
+  </tbody>
+  </table>
+  </div>

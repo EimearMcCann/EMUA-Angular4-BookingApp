@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 
 @Component({
@@ -35,6 +36,8 @@ export class RegisterComponent  {
   // Initialise module classes
   constructor( public http       : HttpClient,
               public fb         : FormBuilder,
+              public toastr : ToastsManager,
+              vcr: ViewContainerRef
            )
   {
 
@@ -46,6 +49,7 @@ export class RegisterComponent  {
       })
     };
    
+    this.toastr.setRootViewContainerRef(vcr);
 
      // Create form builder validation rules
      this.form = fb.group({
@@ -100,7 +104,8 @@ export class RegisterComponent  {
      .subscribe((data : any) =>
      {
         // If the request was successful notify the user
-        this.hideForm   = true;
+       this.resetFields();
+       this.toastr.success('Thanks for signing up!, Please Login..')
        // this.sendNotification(`Congratulations the user: ${username} was successfully added`);
      },
      (error : any) =>

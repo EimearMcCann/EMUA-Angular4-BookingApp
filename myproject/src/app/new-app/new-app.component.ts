@@ -1,9 +1,10 @@
-import { Component} from '@angular/core';
+import { Component, ViewContainerRef} from '@angular/core';
 import { FormGroup, Validators, FormBuilder, NgModel } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import {forkJoin} from 'rxjs/observable/forkJoin';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 @Component({
   selector: 'app-new-app',
   templateUrl: './new-app.component.html',
@@ -36,9 +37,12 @@ export class NewAppComponent {
 
   // Initialise module classes
   constructor( public http       : HttpClient,
-              public fb         : FormBuilder)
+              public fb         : FormBuilder,
+              public toastr : ToastsManager,
+              vcr: ViewContainerRef )
   {
 
+    this.toastr.setRootViewContainerRef(vcr);
     this.load();
 
    
@@ -54,11 +58,6 @@ export class NewAppComponent {
   }
 
 
-  /**
-   * Handle data submitted from the page's HTML form
-   * Determine whether we are adding a new record or amending an
-   * existing record
-   */
   saveAppointment() : void
   {
      let
@@ -95,13 +94,17 @@ export class NewAppComponent {
      .subscribe((data : any) =>
      {
         // If the request was successful notify the user
-        this.hideForm   = true;
-       // this.sendNotification(`Congratulations the user: ${username} was successfully added`);
+       this.resetFields();
+       this.toastr.success('Appointment Booked, See you Soon!')
+     
      },
      (error : any) =>
      {
        console.log(AppointmentTime);
        console.log(error);
+       this.toastr.error('Sorry! Appointment slot taken!!');
+       this.resetTimeandDate;
+
        // this.sendNotification('Something went wrong!');
      });
   }
@@ -119,6 +122,13 @@ export class NewAppComponent {
      this.AppointmentTime   = "";
      this.AppointmentDate   = "";
      this.AppointmentUsername    = "";
+  }
+  resetTimeandDate() : void
+  {
+  
+     this.AppointmentTime   = "";
+     this.AppointmentDate   = "";
+  
   }
 
 

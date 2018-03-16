@@ -15,6 +15,7 @@ export class AvailabilityComponent  {
 
   // Define FormGroup property for managing form validation / data retrieval
   public form : FormGroup;
+  public items : Array<any> =[];
 
   //Model for managing fields
    public appointmentDate : any;
@@ -33,9 +34,10 @@ export class AvailabilityComponent  {
 
   // Initialise module classes
   constructor( public http       : HttpClient,
-              public fb         : FormBuilder,
-           )
+              public fb         : FormBuilder )
+           
   {
+    this.load();
 
    
 
@@ -93,5 +95,42 @@ export class AvailabilityComponent  {
        console.log(error);
        // this.sendNotification('Something went wrong!');
      });
+     
   }
+  ionViewWillEnter() : void{
+    this.load();
+  }
+  load() : void{
+    this.http
+
+    .get('http://localhost/retrieve-availAWS.php')
+    .subscribe((data : any) =>
+  {
+    console.dir(data);
+    this.items = data;
+  },
+  (error : any) =>{
+    console.dir(error);
+  });
+  }
+
+myFunction(){
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table=document.getElementById("myTable");
+  tr=table.getElementByTagName("tr");
+  for (i=0; i<tr.length; i++) {
+    td=tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1){
+        tr[i].style.display="";
+      } else {
+        tr[i].style.display="none";
+      }
+    }
+  }
+  }
+
+
 }
