@@ -1,17 +1,19 @@
+
 <header style = "text-align: right;">
-  <input type="button" value="Sign Out" [routerLink]="['/']" class="Homebtn">
-</header>
+  <a href="/" class="btn btn-info btn-lg">
+      <span class="glyphicon glyphicon-user"></span> Sign Out
+    </a></header>
 
 <div class="container">
    <div class="jumbotron">
-<input type="button" value="Make Appointment" [routerLink]="['../app-new-app']">
+<button type="button"  class="btn btn-primary" [routerLink]="['../app-new-app']">Make Appointment</button>
 
 <br> <br> <p> 
 
 
   
 </p>
-<input type="button" value="View Appointments Details" [routerLink]="['../appointments']">
+<button type="button" class="btn btn-primary" [routerLink]="['../appointments']">View Appointments Details</button>
 
    </div>
 </div>

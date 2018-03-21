@@ -24,6 +24,9 @@ import { NewAppComponent } from './new-app/new-app.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AvailabilityComponent } from './availability/availability.component';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+
 
 
 const appRoutes:Routes = [
@@ -111,9 +114,9 @@ const appRoutes:Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
-    ToastModule.forRoot() 
+    ToastModule.forRoot() ,
+    NgbModule.forRoot()
     
-  
   ],
   providers: [UserService,
   AuthguardGuard],
