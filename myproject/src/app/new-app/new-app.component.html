@@ -51,8 +51,8 @@
     <label for="Appoint_Time">Appointment Time:</label>
      <select id="Appointment_Time" formControlName="Appoint_Time"
             [(ngModel)]="AppointmentTime" class="form-control">
-            <option *ngFor="let item of items" [value] ="item.Appointment_Time">
-              {{item.Appointment_Time}}
+            <option *ngFor="let time of times" [value] ="time.Appointment_Time">
+              {{time.Appointment_Time}}
             </option>
      </select>
           </div>

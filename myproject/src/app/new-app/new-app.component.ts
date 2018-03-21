@@ -44,6 +44,7 @@ export class NewAppComponent {
 
     this.toastr.setRootViewContainerRef(vcr);
     this.load();
+    this.loader();
 
    
 
@@ -144,7 +145,18 @@ export class NewAppComponent {
       (error:any) =>{
         console.dir(error);
       });
+    }
 
+  loader():void{
+    this.http.get('http://localhost/retrieve_TimeAWS.php')
+    .subscribe(
+      (data:any[])=>{
+        console.log(data);
+        this.times= data;
+      },
+      (error:any) =>{
+        console.dir(error);
+      });
   
 
 

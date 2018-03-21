@@ -157,33 +157,56 @@ ionViewWillEnter() : void{
       });
      }
 
-
-    deleteUser() : void
-  {
-
-    let
-    username  : string    = this.form.controls["uName"].value
-    
-
-     let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
-         options  : any   = { "key" : "delete", "username": username},
-         url       : any        = this.baseURI + "manage-dataAWS.php";
-        // url       : any        = this.URL + "/add";
-
-     this.httpClient.post(url, JSON.stringify(options), headers)
-     .subscribe((data : any) =>
+     removeUser() : void
      {
-        // If the request was successful notify the user
-        this.hideForm   = true;
-       // this.sendNotification(`Congratulations the user: ${username} was successfully added`);
-     },
-     (error : any) =>
+        let
+          // userID  : string = this.form.controls["userID"].value,
+            uName   : string    = this.form.controls["uName"].value,
+            pWord   : string    = this.form.controls["pWord"].value,
+            fName   : string = this.form.controls["fName"].value,
+            eMail   : string    = this.form.controls["eMail"].value,
+            pphone  : string    = this.form.controls["pphone"].value;
+  
+            this.deleteUser( uName, pWord, fName, eMail, pphone);
+  
+     }  
+  
+
+
+     deleteUser(username : string, password : string, name: string, email: string, phone: string) : void
      {
-       console.log(username);
-       console.log(error);
-       // this.sendNotification('Something went wrong!');
-     });
-  }
+   
+       let
+       uName   : string    = this.form.controls["username"].value,
+       pWord   : string    = this.form.controls["password"].value,
+       fName   : string    = this.form.controls["name"].value,
+       eMail   : string    = this.form.controls["email"].value,
+       pphone   : string    = this.form.controls["phone"].value;
+       
+   
+        let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
+            options  : any   = { "key" : "delete", "username" : username, "password" : password, "name" : name, "email" : email, "phone": phone },
+            url       : any        = this.baseURI + "manage-dataAWS.php";
+           // url       : any        = this.URL + "/add";
+   
+        this.httpClient.put(url, JSON.stringify(options), headers)
+        .subscribe((data : any) =>
+        {
+         this.toastr.success( 'New Client Added!!');
+           this.resetFields();
+          // this.sendNotification(`Congratulations the user: ${username} was successfully added`);
+        },
+        (error : any) =>
+        {
+          console.log(username);
+          console.log(error);
+          this.toastr.error('Username Taken!, Try another username..');
+        
+          // this.sendNotification('Something went wrong!');
+        });
+     }
+   
+
 
 /*deleteEntry() : void
 {
