@@ -89,14 +89,15 @@ export class NewAppComponent {
      let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
          options  : any   = { "key" : "addAppointment","Appointment_Service" : Appointment_Service, "Appoint_Time" : Appoint_Time, "Appoint_Date" : Appoint_Date,  "Appoint_Username" : Appoint_Username},
          url       : any        = this.baseURI + "manage-dataAWS.php";
-        // url       : any        = this.URL + "/add";
-
+  
      this.http.post(url, JSON.stringify(options), headers)
      .subscribe((data : any) =>
      {
         // If the request was successful notify the user
-       this.resetFields();
-       this.toastr.success('Appointment Booked, See you Soon!')
+       //this.resetFields();
+  
+       
+       this.toastr.success('Appointment Booked, See you Soon!');
      
      },
      (error : any) =>
@@ -110,6 +111,10 @@ export class NewAppComponent {
      });
   }
 
+
+
+
+  
 
   /**
    * Clear values in the page's HTML form fields
@@ -131,7 +136,10 @@ export class NewAppComponent {
      this.AppointmentDate   = "";
   
   }
-
+  refresh(){
+    window.location.reload();
+  
+  }
 
  
 

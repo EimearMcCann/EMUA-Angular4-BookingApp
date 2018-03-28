@@ -3,11 +3,52 @@
 <div class="jumbotron">
 
 
+	<form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)" >
+
+
+	<div>
+		<div [ngClass]="{'error-border':!authForm.controls.username.valid && authForm.controls.username.touched}">
+			 <label floating>Enter Username</label>
+			 <input formControlName="username" type="text" >
+		</div>
+		 <div *ngIf="authForm.controls.username.hasError('pattern') && authForm.controls.username.touched">
+			 <p>Small, Capital Letters and Numbers only</p>
+		 </div>        
+		 <div *ngIf="authForm.controls.username.hasError('minlength') && authForm.controls.username.touched">
+			 <p>Minimum username length is 8!</p>
+		 </div>
+		 <div *ngIf="authForm.controls.username.hasError('maxlength') && authForm.controls.username.touched">
+			 <p>Maximum username length is 12!</p>
+		 </div>
+		
+
+	 <div>
+		 <div>
+				 <label floating>Enter Password</label>
+				 <input formControlName="password" type="password">
+	 </div>
+	 </div>
+
+	  <div>
+		 <button
+		 color="primary"
+		 text-center
+		 block
+			[disabled]="!authForm.valid">Sign In</button>
+	  </div>
+	 </div>
+
+</form>
+
+</div>
+	
+</div>
+</div>
 
 
 
 
-		<form (submit)="loginaUser($event)">
+		<!--<form (submit)="loginaUser($event)">
 				<h2>User</h2>
 
 		<div class="input" class="form-group">
@@ -35,11 +76,8 @@
 						<input type="checkbox" checked="checked" name="remember"> Remember Me
 					</label>
 		</div>
-	</form>
-	</div>
-	
-		</div>
-</div>
+	</form>-->
+
 	
 	 
 	
