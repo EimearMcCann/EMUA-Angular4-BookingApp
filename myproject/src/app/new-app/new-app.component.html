@@ -1,5 +1,8 @@
 <a routerLink = "/app-user-dashboard">Back</a>
 
+
+
+
 <h2 class="header text-center">
   Book Appointment
 </h2>
@@ -37,6 +40,21 @@
                [(ngModel)]="AppointmentService">
         <br>-->
 
+        <form [formGroup]="form" (ngSubmit)="load()">
+
+    <div class="form-group">
+        <label for="Appoint_Date">Appointment Date:</label>
+         <input type="text "id="Appointment_Date" formControlName="Appoint_Date"
+                [(ngModel)]="AppointmentDate" class="form-control">
+              </div>  
+</form>
+       <!-- <label for="Appoint_Date">Appointment Date:</label>
+        <select id="Appointment_Date" formControlName="Appoint_Date"
+               [(ngModel)]="AppointmentDate" class="form-control">
+               <option *ngFor="let item of items" [value] ="item.Appointment_Date">
+               {{item.Appointment_Date}}
+               </option>
+              </select>
         <div class="form-group">
             <label for="Appoint_Date">Appointment Date:</label>
              <select id="Appointment_Date" formControlName="Appoint_Date"
@@ -45,15 +63,15 @@
                       {{item.Appointment_Date}}
                     </option>
              </select>
-                  </div>      
+                  </div> -->     
     
     <div class="form-group">
     <label for="Appoint_Time">Appointment Time:</label>
      <select id="Appointment_Time" formControlName="Appoint_Time"
             [(ngModel)]="AppointmentTime" class="form-control">
-            <option *ngFor="let time of times" [value] ="time.Appointment_Time">
-              {{time.Appointment_Time}}
-            </option>
+            <option *ngFor="let item of items" [value] ="item.Appointment_Date">
+                {{item.Appointment_Time}}
+                </option>
      </select>
           </div>
 

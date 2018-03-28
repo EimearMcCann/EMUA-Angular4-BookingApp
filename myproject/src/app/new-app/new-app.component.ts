@@ -43,7 +43,7 @@ export class NewAppComponent {
   {
 
     this.toastr.setRootViewContainerRef(vcr);
-    this.load();
+   this.load();
     this.loader();
 
    
@@ -138,12 +138,32 @@ export class NewAppComponent {
   }
   refresh(){
     window.location.reload();
+    
   
   }
 
+  load() {
+
+    let 
+     headers: any = new HttpHeaders({'Content-Type': 'application/json'}),
+     options: any = {"key": "getAvail", "Appointment_Date": this.AppointmentDate},
+     url: any = this.baseURI + "/manage-dataAWS.php";
+
+     this.http.post(url, JSON.stringify(options), headers)
+     .subscribe((data:any)=>{
+
+      console.dir(data);
+      this.items=data;
+
+     },
+     (error: any) => {
+       console.log('ERROR, Something went wrong!!!');
+     
+     });
+  }
  
 
-  load():void{
+  loader():void{
     this.http.get('http://localhost/retrieve-availAWS.php')
     .subscribe(
       (data:any[])=>{
@@ -153,7 +173,7 @@ export class NewAppComponent {
       (error:any) =>{
         console.dir(error);
       });
-    }
+  }/*
 
   loader():void{
     this.http.get('http://localhost/retrieve_TimeAWS.php')
@@ -165,7 +185,7 @@ export class NewAppComponent {
       (error:any) =>{
         console.dir(error);
       });
-  
+  */
 
 
   /**
@@ -174,5 +194,5 @@ export class NewAppComponent {
    */
 
  
- }}
+ }
 
