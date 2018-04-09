@@ -40,11 +40,14 @@ export class NewAppComponent {
               public fb         : FormBuilder,
               public toastr : ToastsManager,
               vcr: ViewContainerRef )
+              
   {
+    
 
     this.toastr.setRootViewContainerRef(vcr);
    this.load();
-    this.loader();
+   // this.loader();
+  
 
    
 
@@ -152,18 +155,20 @@ export class NewAppComponent {
      this.http.post(url, JSON.stringify(options), headers)
      .subscribe((data:any)=>{
 
-      console.dir(data);
+      console.log(data);
       this.items=data;
 
      },
      (error: any) => {
+     
+      console.log(error);
        console.log('ERROR, Something went wrong!!!');
      
      });
   }
  
 
-  loader():void{
+  /*loader():void{
     this.http.get('http://localhost/retrieve-availAWS.php')
     .subscribe(
       (data:any[])=>{

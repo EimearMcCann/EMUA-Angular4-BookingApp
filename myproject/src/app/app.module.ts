@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AppointmentsComponent } from './appointments/appointments.component';
+import { FireloginComponent } from './firelogin/firelogin.component';
 import { LoginformComponent } from './loginform/loginform.component';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -25,6 +26,17 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { AvailabilityComponent } from './availability/availability.component';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from './services/auth.service';
+import { AuthGuard} from './services/auth-guard.service';
+
+
+
+
 
 
 
@@ -57,7 +69,7 @@ const appRoutes:Routes = [
   },
   {
     path: 'dashboard',
-    canActivate: [AuthguardGuard],
+    canActivate: [AuthGuard],
     component: DashboardComponent
   },
   {
@@ -80,6 +92,12 @@ const appRoutes:Routes = [
     path:'app-user-dashboard',
     component:  UserDashboardComponent
   },
+  {
+    path:'app-firelogin',
+    component:  FireloginComponent
+  }
+  
+  
 
  
   
@@ -101,7 +119,8 @@ const appRoutes:Routes = [
     WelcomeComponent,
     NewAppComponent,
     UserDashboardComponent,
-    AvailabilityComponent
+    AvailabilityComponent,
+    FireloginComponent
 
     
   ],
@@ -115,11 +134,16 @@ const appRoutes:Routes = [
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
     ToastModule.forRoot() ,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AngularFontAwesomeModule,
+    AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
     
   ],
   providers: [UserService,
-  AuthguardGuard],
+  AuthguardGuard,AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export const AppRoutes = RouterModule.forRoot(appRoutes);
