@@ -41,22 +41,23 @@
                [(ngModel)]="AppointmentService">
         <br>-->
 
-        <form [formGroup]="form" (ngSubmit)="load()">
+        
 
-    <div class="form-group">
+    <!--<div class="form-group">
         <label for="Appoint_Date">Appointment Date:</label>
          <input type="text "id="Appointment_Date" formControlName="Appoint_Date"
                 [(ngModel)]="AppointmentDate" class="form-control">
-              </div>  
-</form>
-       <!-- <label for="Appoint_Date">Appointment Date:</label>
+              </div>  -->
+
+       <label for="Appoint_Date">Appointment Date:</label>
         <select id="Appointment_Date" formControlName="Appoint_Date"
-               [(ngModel)]="AppointmentDate" class="form-control">
-               <option *ngFor="let item of items" [value] ="item.Appointment_Date">
+               [(ngModel)]="AppointmentDate" (change)="load()" class="form-control">
+               <option *ngFor="let item of items"  [value] ="item.Appointment_Date">
                {{item.Appointment_Date}}
                </option>
               </select>
-        <div class="form-group">
+
+       <!-- <div class="form-group">
             <label for="Appoint_Date">Appointment Date:</label>
              <select id="Appointment_Date" formControlName="Appoint_Date"
                     [(ngModel)]="AppointmentDate" class="form-control">
@@ -64,13 +65,13 @@
                       {{item.Appointment_Date}}
                     </option>
              </select>
-                  </div> -->     
+                  </div>  -->
     
     <div class="form-group">
     <label for="Appoint_Time">Appointment Time:</label>
-     <select id="Appointment_Time" formControlName="Appoint_Time"
-            [(ngModel)]="AppointmentTime" class="form-control">
-            <option *ngFor="let item of items" [value] ="item.Appointment_Date">
+     <select id="Appointment_Time"  formControlName="Appoint_Time"
+            [(ngModel)]="AppointmentTime"   class="form-control">
+            <option *ngFor="let item of times" [value] ="item.Appointment_Time">
                 {{item.Appointment_Time}}
                 </option>
      </select>
@@ -84,8 +85,11 @@
     class="btn btn-primary btn-block"
     text-center
     block
-    [disabled]="!form.valid">Submit</button>
+    >Submit</button>
+
+   <!-- [disabled]="!form.valid"-->
    
+    
 
 </form>
 </div>

@@ -24,6 +24,7 @@ export class NewAppComponent {
    public AppointmentTime : any;
    public AppointmentDate : any;
    public AppointmentUsername : any;
+   //public date: any="4/5/2018";
 
    // Flag to be used for checking whether we are adding/editing an entry
    public isEdited               : boolean = false;
@@ -45,8 +46,8 @@ export class NewAppComponent {
     
 
     this.toastr.setRootViewContainerRef(vcr);
-   this.load();
-   // this.loader();
+   //this.load(this.DateSelected);
+   this.loader();
   
 
    
@@ -72,6 +73,7 @@ export class NewAppComponent {
         
 
      this.createAppointment( AppointmentService, AppointmentTime, AppointmentDate, AppointmentUsername);
+
   }
 
   /**
@@ -156,7 +158,8 @@ export class NewAppComponent {
      .subscribe((data:any)=>{
 
       console.log(data);
-      this.items=data;
+      this.times=data;
+      console.log(this.items);
 
      },
      (error: any) => {
@@ -168,17 +171,19 @@ export class NewAppComponent {
   }
  
 
-  /*loader():void{
+  loader():void{
     this.http.get('http://localhost/retrieve-availAWS.php')
     .subscribe(
       (data:any[])=>{
         console.log(data);
         this.items= data;
+        console.log(this.AppointmentDate);
       },
       (error:any) =>{
         console.dir(error);
       });
-  }/*
+  }
+  /*
 
   loader():void{
     this.http.get('http://localhost/retrieve_TimeAWS.php')
