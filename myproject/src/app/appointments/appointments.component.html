@@ -11,6 +11,7 @@
     <table style="width:100%" class="table table-hover">
       <thead>
       <tr>
+          <td>Id</td>
         <td>Name</td>
         <td>Service Name</td> 
         <td>Appointment Time</td>
@@ -18,15 +19,91 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of items">
-       <!-- <td>{{ item.AppointmentID }}</td>-->
-       <td>{{ item.Appoint_Username}}</td>
-        <td>{{ item.Appointment_Service}}</td>
-        <td>{{ item.Appoint_Time}}</td> 
-        <td>{{ item.Appoint_Date }}</td>
+      <tr *ngFor="let prod of prods let index=index" (click)="checking(index)">
+          <td>{{ prod.Appointment_ID}}</td>
+       <td>{{ prod.Appoint_Username}}</td>
+        <td>{{ prod.Appointment_Service}}</td>
+        <td>{{ prod.Appoint_Time}}</td> 
+        <td>{{ prod.Appoint_Date }}</td>
       </tr>
     </tbody>
     </table>
+
+    
+    <form [formGroup]="form"  (ngSubmit)="saveAppointment()">
+      <div class="form-row">
+
+
+          <div class="form-group col-md-2">
+              <label color="light">ID:</label>
+             <input id="Appointment_ID" class="form-control"
+                  formControlName="Appointment_ID" name="Appointment_ID"
+                    [(ngModel)]="selectedItem.Appointment_ID" disabled >
+                   </div>
+
+          <div class="form-group col-md-5">
+              <label color="light">Username:</label>
+             <input id="Appoint_Username" class="form-control"
+                  formControlName="Appoint_Username" name="Appoint_Username"
+                    [(ngModel)]="selectedItem.Appoint_Username" disabled >
+          </div>
+                             <div class="form-group">
+                                <label for="Appointment_Service"> Appointment Service:</label>
+                                <select id="Appointment_Service"  formControlName="Appointment_Service"
+                                       [(ngModel)]="AppointmentService" class="form-control"> 
+                                      <option value="Gel Nails">Nails</option>
+                                      <option value="Gel Nails with Extention">Gel Nails with extention</option>
+                                      <option value="Full body spray Tan">Full Body Spray Tan</option>
+                                      <option value="Make up and Lashes">Make up and Lashes</option>
+                                      <option value="Lash Extentions">Lash Extentions</option>
+                        </select>
+                                </div>
+
+
+                             <div class="form-group col-md-5">
+                             <label for="Appointment_Date">Appointment Date:</label>
+                             <select id="Appointment_Date" formControlName="Appoint_Date"
+                                    [(ngModel)]="Appointment_Date" (change)="loading()" class="form-control">
+                                    <option *ngFor="let item of items"  [value] ="item.Appointment_Date">
+                                    {{item.Appointment_Date}}
+                                    </option>
+                                   </select>
+                             </div>
+
+                             <div class="form-group">
+                                <label for="Appoint_Time">Appointment Time:</label>
+                                 <select id="Appointment_Time"  formControlName="Appoint_Time"
+                                        [(ngModel)]="AppointmentTime"   class="form-control">
+                                        <option *ngFor="let item of times" [value] ="item.Appointment_Time">
+                                            {{item.Appointment_Time}}
+                                            </option>
+                                 </select>
+                                      </div>
+                         
+                       <!--      <div class="form-group col-md-5">
+                         <label for="Appoint_Time">Appointment Time:</label>
+                          <select id="Appointment_Time"  formControlName="Appoint_Time"
+                                 [(ngModel)]="AppointmentTime"   class="form-control">
+                                 <option *ngFor="let item of times" [value] ="item.Appointment_Time">
+                                     {{item.Appointment_Time}}
+                                     </option>
+                          </select>
+                               </div>-->
+                     
+                    <button
+                    type="ngSubmit"
+                    class="btn btn-primary btn-block"
+                    color="primary"
+                    text-center
+                    block
+                    [disabled]="!form.valid">Update</button>
+                   
+                    <button (click)="removeUser()" class="btn btn-danger btn-block" >Delete</button>﻿
+      </div>
+  
+  
+   </form>
+  
     </div>
 
   </div>

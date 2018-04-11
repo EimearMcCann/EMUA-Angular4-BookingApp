@@ -109,8 +109,8 @@ export class NewAppComponent {
      {
        console.log(AppointmentTime);
        console.log(error);
-       this.toastr.error('Sorry! Appointment slot taken!!');
-       this.resetTimeandDate;
+       this.toastr.error('Username Incorrect!!');
+       this.resetUsername();
 
        // this.sendNotification('Something went wrong!');
      });
@@ -134,11 +134,11 @@ export class NewAppComponent {
      this.AppointmentDate   = "";
      this.AppointmentUsername    = "";
   }
-  resetTimeandDate() : void
+  resetUsername() : void
   {
   
-     this.AppointmentTime   = "";
-     this.AppointmentDate   = "";
+     this.AppointmentUsername   = "";
+     //this.AppointmentDate   = "";
   
   }
   refresh(){
