@@ -1,10 +1,12 @@
 <header style = "text-align: right;">
   <input type="button" value="Sign Out" [routerLink]="['/']" class="Homebtn">
 </header>
-
-<div class="container">
-
-
+<h2 class="header text-center">
+    Appointment Schedule
+  </h2>
+  
+ 
+  
 
 <div style="overflow-x:auto;">
   
@@ -32,7 +34,6 @@
     
     <form [formGroup]="form"  (ngSubmit)="saveAppointment()">
       <div class="form-row">
-
 
           <div class="form-group col-md-2">
               <label color="light">ID:</label>
@@ -104,11 +105,5 @@
   
    </form>
   
-    </div>
 
-  </div>
 
-<!--<li *ngFor = "let item of items">
-  <h2>{{ item.idAppointment }}{{ item.Appointment_Name }}<br> {{ item.Appointment_Time}}<br> {{ item.Appointment_Date }} {{ item.Appointment_Service}}</h2> 
-
-</li>-->

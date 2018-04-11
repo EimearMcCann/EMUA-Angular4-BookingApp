@@ -20,6 +20,8 @@ export class AvailabilityComponent  {
   //Model for managing fields
    public appointmentDate : any;
    public appointmentTime : any;
+   public appointmentAvail : any;
+
  
 
    // Flag to be used for checking whether we are adding/editing an entry
@@ -44,7 +46,8 @@ export class AvailabilityComponent  {
      // Create form builder validation rules
      this.form = fb.group({
         "Appointment_Date"       : ["", Validators.required],
-        "Appointment_Time"       : ["", Validators.required]
+        "Appointment_Time"       : ["", Validators.required],
+        "Appointment_Avail"       : ["", Validators.required]
      });
   }
 
@@ -58,9 +61,10 @@ export class AvailabilityComponent  {
   {
      let
          appointmentDate   : string    = this.form.controls["Appointment_Date"].value,
-         appointmentTime  : string    = this.form.controls["Appointment_Time"].value
+         appointmentTime  : string    = this.form.controls["Appointment_Time"].value,
+         appointmentAvail  : string    = this.form.controls["Appointment_Time"].value
 
-     this.addAvail(appointmentDate, appointmentTime );
+     this.addAvail(appointmentDate, appointmentTime, appointmentAvail );
   }
 
   /**
@@ -68,17 +72,20 @@ export class AvailabilityComponent  {
    * Use angular's http post method to submit the record data
    *
    */
-  addAvail(Appointment_Date : string, Appointment_Time : string) : void
+  addAvail(Appointment_Date : string, Appointment_Time : string, Appointment_Avail : string) : void
   {
 
     let
     appointmentDate   : string    = this.form.controls["Appointment_Date"].value,
-    appointmentTime  : string    = this.form.controls["Appointment_Time"].value
+    appointmentTime  : string    = this.form.controls["Appointment_Time"].value,
+    appointmentAvail  : string    = this.form.controls["Appointment_Avail"].value
+    
+    
 
     
 
      let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
-         options  : any   = { "key" : "addAvail", "Appointment_Date" : Appointment_Date, "Appointment_Time" : Appointment_Time },
+         options  : any   = { "key" : "addAvail", "Appointment_Date" : appointmentDate, "Appointment_Time" : appointmentTime, "Appointment_Avail" : appointmentAvail },
          url       : any        = this.baseURI + "manage-dataAWS.php";
         // url       : any        = this.URL + "/add";
 
@@ -87,6 +94,7 @@ export class AvailabilityComponent  {
      {
         // If the request was successful notify the user
         this.hideForm   = true;
+        console.log(appointmentTime);
        // this.sendNotification(`Congratulations the user: ${username} was successfully added`);
      },
      (error : any) =>
