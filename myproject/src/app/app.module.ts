@@ -81,6 +81,11 @@ const appRoutes:Routes = [
     path:'app-user-dashboard',
     component:  UserDashboardComponent
   },
+  {
+    path:'app-update-avail',
+    component:  UpdateAvailComponent
+  },
+
 
  
   

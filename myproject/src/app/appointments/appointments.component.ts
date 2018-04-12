@@ -50,8 +50,8 @@ export class AppointmentsComponent {
 
     this.toastr.setRootViewContainerRef(vcr);
     this.load();
-    this.loader();
-    this.loading();
+    //this.loader();
+   // this.loading();
     
     this.form = fb.group({
       // "userID"         : ["", Validators.required],
@@ -67,8 +67,8 @@ export class AppointmentsComponent {
 
   ionViewWillEnter() : void{
     this.load();
-    this.loading();
-    this.loader();
+  //  this.loading();
+   // this.loader();
   }
 
 
@@ -98,23 +98,23 @@ export class AppointmentsComponent {
       let
         // userID  : string = this.form.controls["userID"].value,
         Appointment_ID   : string    = this.form.controls["Appointment_ID"].value,
-        Appointment_Service   : string    = this.form.controls["Appointment_Service"].value,
+       // Appointment_Service   : string    = this.form.controls["Appointment_Service"].value,
         Appoint_Time   : string    = this.form.controls["Appoint_Time"].value,
-        Appoint_Date   : string = this.form.controls["Appoint_Date"].value,
-        Appoint_Username   : string    = this.form.controls["Appoint_Username"].value
+        Appoint_Date   : string = this.form.controls["Appoint_Date"].value
+//Appoint_Username   : string    = this.form.controls["Appoint_Username"].value
         
 
-          this.updateAppointment(Appointment_ID, Appointment_Service, Appoint_Time, Appoint_Date, Appoint_Username);
+          this.updateAppointment(Appointment_ID, Appoint_Time, Appoint_Date);
 
    }  
 
  
    
-   updateAppointment( Appointment_ID: string, Appointment_Service : string, Appoint_Time: string, Appoint_Date: string, Appoint_Username: string) : void
+   updateAppointment(Appointment_ID: string, Appoint_Time: string, Appoint_Date: string) : void
    {    
      
       let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
-          options  : any   = { "key" : "updateAppointment", "Appointment_ID" : Appointment_ID, "Appointment_Service" : Appointment_Service, "Appoint_Time" : Appoint_Time, "Appoint_Date" : Appoint_Date, "Appoint_Username" : Appoint_Username },
+          options  : any   = { "key" : "unaddAppointmentOne", "Appointment_ID": Appointment_ID, "Appoint_Time" : Appoint_Time, "Appoint_Date" : Appoint_Date },
           url       : any        = this.baseURI + "manage-dataAWS.php";
      
  
@@ -123,13 +123,15 @@ export class AppointmentsComponent {
       {
          // If the request was successful notify the user
          
-         console.log(Appoint_Username);
-         this.toastr.warning('User Updated!')
+         console.log(Appoint_Time);
+        // this.toastr.warning('User Updated!')
+         this.router.navigate(['app-update-avail']);
+         //this.toastr.warning('User Updated!')
         // this.sendNotification(`Congratulations the user: ${username} was successfully added`);
       },
       (error : any) =>
       {
-       console.log(Appoint_Username);
+       console.log(Appoint_Date);
         console.log(error);
         this.toastr.error('Something went wrong!!!')
 
@@ -137,7 +139,7 @@ export class AppointmentsComponent {
       });
      }
 
-  loading() {
+  /*loading() {
 
     let 
      headers: any = new HttpHeaders({'Content-Type': 'application/json'}),
@@ -158,9 +160,9 @@ export class AppointmentsComponent {
        console.log('ERROR, Something went wrong!!!');
      
      });
-  }
+  }*/
   
-  loader():void{
+ /* loader():void{
     this.http.get('http://localhost/retrieve-availAWS.php')
     .subscribe(
       (data:any[])=>{
@@ -171,7 +173,7 @@ export class AppointmentsComponent {
       (error:any) =>{
         console.dir(error);
       });
-  }
+  }*/
 
   
 }

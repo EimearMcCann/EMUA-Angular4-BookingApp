@@ -50,35 +50,21 @@
           </div>
                              <div class="form-group">
                                 <label for="Appointment_Service"> Appointment Service:</label>
-                                <select id="Appointment_Service"  formControlName="Appointment_Service"
-                                       [(ngModel)]="AppointmentService" class="form-control"> 
-                                      <option value="Gel Nails">Nails</option>
-                                      <option value="Gel Nails with Extention">Gel Nails with extention</option>
-                                      <option value="Full body spray Tan">Full Body Spray Tan</option>
-                                      <option value="Make up and Lashes">Make up and Lashes</option>
-                                      <option value="Lash Extentions">Lash Extentions</option>
-                        </select>
+                                <input id="Appointment_Service"  formControlName="Appointment_Service"
+                                       [(ngModel)]="selectedItem.Appointment_Service" class="form-control" disabled> 
                                 </div>
 
 
                              <div class="form-group col-md-5">
                              <label for="Appointment_Date">Appointment Date:</label>
-                             <select id="Appointment_Date" formControlName="Appoint_Date"
-                                    [(ngModel)]="Appointment_Date" (change)="loading()" class="form-control">
-                                    <option *ngFor="let item of items"  [value] ="item.Appointment_Date">
-                                    {{item.Appointment_Date}}
-                                    </option>
-                                   </select>
+                             <input id="Appointment_Date" formControlName="Appoint_Date"
+                                    [(ngModel)]="selectedItem.Appoint_Date" class="form-control" disabled>
                              </div>
 
                              <div class="form-group">
                                 <label for="Appoint_Time">Appointment Time:</label>
-                                 <select id="Appointment_Time"  formControlName="Appoint_Time"
-                                        [(ngModel)]="AppointmentTime"   class="form-control">
-                                        <option *ngFor="let item of times" [value] ="item.Appointment_Time">
-                                            {{item.Appointment_Time}}
-                                            </option>
-                                 </select>
+                                 <input id="Appointment_Time"  formControlName="Appoint_Time"
+                                        [(ngModel)]="selectedItem.Appoint_Time"   class="form-control" disabled>
                                       </div>
                          
                        <!--      <div class="form-group col-md-5">
