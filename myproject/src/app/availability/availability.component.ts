@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component,ViewContainerRef } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, NgModel } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 
 @Component({
@@ -36,10 +37,13 @@ export class AvailabilityComponent  {
 
   // Initialise module classes
   constructor( public http       : HttpClient,
-              public fb         : FormBuilder )
+              public fb         : FormBuilder,
+              public toastr : ToastsManager,
+              vcr: ViewContainerRef )
            
   {
     this.load();
+    this.toastr.setRootViewContainerRef(vcr);
 
    
 
@@ -49,6 +53,12 @@ export class AvailabilityComponent  {
         "Appointment_Time"       : ["", Validators.required],
         "Appointment_Avail"       : ["", Validators.required]
      });
+     
+  }
+  refresh(){
+    window.location.reload();
+    
+  
   }
 
 
@@ -57,6 +67,7 @@ export class AvailabilityComponent  {
    * Determine whether we are adding a new record or amending an
    * existing record
    */
+  
   saveAvail() : void
   {
      let
@@ -93,8 +104,13 @@ export class AvailabilityComponent  {
      .subscribe((data : any) =>
      {
         // If the request was successful notify the user
-        this.hideForm   = true;
+       
         console.log(appointmentTime);
+        this.toastr.success('New Availability Added!!!');
+
+
+
+      
        // this.sendNotification(`Congratulations the user: ${username} was successfully added`);
      },
      (error : any) =>
@@ -121,6 +137,8 @@ export class AvailabilityComponent  {
     console.dir(error);
   });
   }
+
+  
 
 myFunction(){
   var input, filter, table, tr, td, i;

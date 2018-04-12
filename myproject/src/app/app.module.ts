@@ -25,6 +25,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { AvailabilityComponent } from './availability/availability.component';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { UpdateAvailComponent } from './update-avail/update-avail.component';
 
 
 
@@ -101,7 +102,8 @@ const appRoutes:Routes = [
     WelcomeComponent,
     NewAppComponent,
     UserDashboardComponent,
-    AvailabilityComponent
+    AvailabilityComponent,
+    UpdateAvailComponent
 
     
   ],
