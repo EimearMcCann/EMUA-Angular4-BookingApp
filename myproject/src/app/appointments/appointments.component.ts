@@ -39,7 +39,7 @@ export class AppointmentsComponent {
    
 
   // xampp url testing on local host
-  private baseURI   : string = "http://127.0.0.1/";
+  private baseURI   : string = "http://ec2-34-244-164-69.eu-west-1.compute.amazonaws.com/";
 
 
   constructor(public http : HttpClient,
@@ -77,7 +77,7 @@ export class AppointmentsComponent {
   load() : void{
     this.http
 
-    .get('http://localhost/retrieve-AppointmentAWS.php')
+    .get('http://ec2-34-244-164-69.eu-west-1.compute.amazonaws.com/retrieve-AppointmentAWS1.php')
     .subscribe((data : any) =>
   {
     console.dir(data);
@@ -115,7 +115,7 @@ export class AppointmentsComponent {
      
       let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
           options  : any   = { "key" : "unaddAppointmentOne", "Appointment_ID": Appointment_ID, "Appoint_Time" : Appoint_Time, "Appoint_Date" : Appoint_Date },
-          url       : any        = this.baseURI + "manage-dataAWS.php";
+          url       : any        = this.baseURI + "manage-dataAWS1.php";
      
  
       this.http.post(url, JSON.stringify(options), headers)

@@ -45,7 +45,7 @@ export class ClientsComponent {
   public hideForm               : boolean = false;
 
   // xampp url testing on local host
-  private baseURI   : string = "http://127.0.0.1/";
+  private baseURI   : string = "http://ec2-34-244-164-69.eu-west-1.compute.amazonaws.com/";
 
 
   public form : FormGroup;
@@ -92,7 +92,7 @@ ionViewWillEnter() : void{
 }
 
   load():void{
-    this.httpClient.get('http://localhost/retrieve-dataAWS.php')
+    this.httpClient.get('http://ec2-34-244-164-69.eu-west-1.compute.amazonaws.com/retrieve-dataAWS.php')
     .subscribe(
       (data:any[])=>{
         console.log(data);
@@ -135,7 +135,7 @@ ionViewWillEnter() : void{
      
       let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
           options  : any   = { "key" : "update", "username" : uName, "password" : pWord, "name" : fName, "email" : eMail, "phone": pphone },
-          url       : any        = this.baseURI + "manage-dataAWS.php";
+          url       : any        = this.baseURI + "manage-dataAWS1.php";
      
  
       this.httpClient.post(url, JSON.stringify(options), headers)
@@ -186,7 +186,7 @@ ionViewWillEnter() : void{
    
         let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
             options  : any   = { "key" : "delete", "username" : username, "password" : password, "name" : name, "email" : email, "phone": phone },
-            url       : any        = this.baseURI + "manage-dataAWS.php";
+            url       : any        = this.baseURI + "manage-dataAWS1.php";
            // url       : any        = this.URL + "/add";
    
         this.httpClient.put(url, JSON.stringify(options), headers)

@@ -33,7 +33,7 @@ export class NewAppComponent {
   public hideForm               : boolean = false;
 
   // xampp url testing on local host
-  private baseURI   : string = "http://127.0.0.1/";
+  private baseURI   : string = "http://ec2-34-244-164-69.eu-west-1.compute.amazonaws.com/";
 
 
   // Initialise module classes
@@ -93,7 +93,7 @@ export class NewAppComponent {
 
      let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
          options  : any   = { "key" : "addAppointment","Appointment_Service" : Appointment_Service, "Appoint_Time" : Appoint_Time, "Appoint_Date" : Appoint_Date,  "Appoint_Username" : Appoint_Username},
-         url       : any        = this.baseURI + "manage-dataAWS.php";
+         url       : any        = this.baseURI + "manage-dataAWS1.php";
   
      this.http.post(url, JSON.stringify(options), headers)
      .subscribe((data : any) =>
@@ -152,7 +152,7 @@ export class NewAppComponent {
     let 
      headers: any = new HttpHeaders({'Content-Type': 'application/json'}),
      options: any = {"key": "getAvail", "Appointment_Date": this.AppointmentDate},
-     url: any = this.baseURI + "/manage-dataAWS.php";
+     url: any = this.baseURI + "/manage-dataAWS1.php";
 
      this.http.post(url, JSON.stringify(options), headers)
      .subscribe((data:any)=>{
@@ -172,7 +172,7 @@ export class NewAppComponent {
  
 
   loader():void{
-    this.http.get('http://localhost/retrieve-availAWS.php')
+    this.http.get('http://ec2-34-244-164-69.eu-west-1.compute.amazonaws.com/retrieve-availAWS.php')
     .subscribe(
       (data:any[])=>{
         console.log(data);

@@ -31,7 +31,7 @@ export class NewclientComponent {
   public hideForm               : boolean = false;
 
   // xampp url testing on local host
-  private baseURI   : string = "http://127.0.0.1/";
+  private baseURI   : string = "http://ec2-34-244-164-69.eu-west-1.compute.amazonaws.com/";
 
 
   // Initialise module classes
@@ -110,7 +110,7 @@ export class NewclientComponent {
 
      let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
          options  : any   = { "key" : "addUser", "username" : username, "password" : password, "name" : name, "email" : email, "phone": phone },
-         url       : any        = this.baseURI + "manage-dataAWS.php";
+         url       : any        = this.baseURI + "manage-dataAWS1.php";
         // url       : any        = this.URL + "/add";
 
      this.http.post(url, JSON.stringify(options), headers)

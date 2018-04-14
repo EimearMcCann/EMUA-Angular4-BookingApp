@@ -32,7 +32,7 @@ export class AvailabilityComponent  {
   public hideForm               : boolean = false;
 
   // xampp url testing on local host
-  private baseURI   : string = "http://127.0.0.1/";
+  private baseURI   : string = "http://ec2-34-244-164-69.eu-west-1.compute.amazonaws.com/";
 
 
   // Initialise module classes
@@ -97,7 +97,7 @@ export class AvailabilityComponent  {
 
      let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
          options  : any   = { "key" : "addAvail", "Appointment_Date" : appointmentDate, "Appointment_Time" : appointmentTime, "Appointment_Avail" : appointmentAvail },
-         url       : any        = this.baseURI + "manage-dataAWS.php";
+         url       : any        = this.baseURI + "manage-dataAWS.php1";
         // url       : any        = this.URL + "/add";
 
      this.http.post(url, JSON.stringify(options), headers)
@@ -127,7 +127,7 @@ export class AvailabilityComponent  {
   load() : void{
     this.http
 
-    .get('http://localhost/retrieve-availAWS.php')
+    .get('http://ec2-34-244-164-69.eu-west-1.compute.amazonaws.com/retrieve-availAWS.php')
     .subscribe((data : any) =>
   {
     console.dir(data);
