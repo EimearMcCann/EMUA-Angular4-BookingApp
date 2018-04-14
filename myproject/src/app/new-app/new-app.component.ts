@@ -203,6 +203,8 @@ export class NewAppComponent {
    *
    */
 
- 
+ ngSubmit(){
+   
+ }
  }
 
