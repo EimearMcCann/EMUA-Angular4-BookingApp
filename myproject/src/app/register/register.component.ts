@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { Router } from '@angular/router';
+
+
 
 
 @Component({
@@ -35,6 +39,10 @@ export class RegisterComponent  {
   // Initialise module classes
   constructor( public http       : HttpClient,
               public fb         : FormBuilder,
+              public router : Router,
+              public toastr : ToastsManager,
+              vcr: ViewContainerRef
+              
            )
   {
 
@@ -46,6 +54,7 @@ export class RegisterComponent  {
       })
     };
    
+    this.toastr.setRootViewContainerRef(vcr);
 
      // Create form builder validation rules
      this.form = fb.group({
@@ -57,6 +66,10 @@ export class RegisterComponent  {
      });
   }
 
+ success(): void 
+ {
+   this.router.navigate(['userlogin']);
+ }
 
   /**
    * Handle data submitted from the page's HTML form
@@ -100,13 +113,17 @@ export class RegisterComponent  {
      .subscribe((data : any) =>
      {
         // If the request was successful notify the user
-        this.hideForm   = true;
+       this.resetFields();
+       this.toastr.success('Thanks for signing up!, Please Login..')
+      // this.success();
        // this.sendNotification(`Congratulations the user: ${username} was successfully added`);
      },
      (error : any) =>
      {
        console.log(username);
        console.log(error);
+       this.resetUsername();
+       this.toastr.error('Username Taken, Try Again!')
        // this.sendNotification('Something went wrong!');
      });
   }
@@ -125,6 +142,10 @@ export class RegisterComponent  {
      this.pphone    = "";
   }
 
+  resetUsername() : void
+  {
+     this.uName    = "";
+  }
 
   /**
    * Manage notifying the user of the outcome of remote operations

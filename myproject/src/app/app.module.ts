@@ -15,19 +15,31 @@ import { ClientsComponent } from './clients/clients.component';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { RegisterComponent } from './register/register.component';
 import { UserservicesComponent } from './userservices/userservices.component';
-import { DateandtimeComponent } from './dateandtime/dateandtime.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UpdateProductComponent } from './update-product/update-product.component';
 import { NewclientComponent } from './newclient/newclient.component';
-import { CalendarComponent } from './calendar/calendar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { NewAppComponent } from './new-app/new-app.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { AvailabilityComponent } from './availability/availability.component';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { UpdateAvailComponent } from './update-avail/update-avail.component';
+
+
+
 
 const appRoutes:Routes = [
+  {
+    path: 'app-welcome',
+    component: WelcomeComponent
+  },
   {
     path: 'userlogin',
     component: UserloginComponent
   },
+   
   {
     path: 'loginform',
     component: LoginformComponent
@@ -37,12 +49,8 @@ const appRoutes:Routes = [
     component: RegisterComponent
   },
   {
-    path: 'userservices',
-    component: UserservicesComponent
-  },
-  {
-    path: 'dateandtime',
-    component: DateandtimeComponent
+    path: 'app-availability',
+    component: AvailabilityComponent
   },
   {
     path: '',
@@ -62,13 +70,25 @@ const appRoutes:Routes = [
     component: AppointmentsComponent
   },
   {
-    path:'update-product',
-    component: UpdateProductComponent
-  },
-  {
     path:'newclient',
     component: NewclientComponent
-  }
+  },
+  {
+    path:'app-new-app',
+    component: NewAppComponent
+  },
+  {
+    path:'app-user-dashboard',
+    component:  UserDashboardComponent
+  },
+  {
+    path:'app-update-avail',
+    component:  UpdateAvailComponent
+  },
+
+
+ 
+  
 ]
 
 @NgModule({
@@ -83,10 +103,13 @@ const appRoutes:Routes = [
     UserloginComponent,
     RegisterComponent,
     UserservicesComponent,
-    DateandtimeComponent,
-    UpdateProductComponent,
     NewclientComponent,
-    CalendarComponent,
+    WelcomeComponent,
+    NewAppComponent,
+    UserDashboardComponent,
+    AvailabilityComponent,
+    UpdateAvailComponent
+
     
   ],
   imports: [
@@ -97,7 +120,10 @@ const appRoutes:Routes = [
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    CalendarModule.forRoot()
+    CalendarModule.forRoot(),
+    ToastModule.forRoot() ,
+    NgbModule.forRoot()
+    
   ],
   providers: [UserService,
   AuthguardGuard],

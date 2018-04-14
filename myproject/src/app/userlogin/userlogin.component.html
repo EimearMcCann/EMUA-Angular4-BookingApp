@@ -1,22 +1,86 @@
+<div class="container ">
+<div class="col-md-6 col-md-offset-10">
+<div class="jumbotron">
 
-<form (submit)="loginaUser($event)">
-		<h2>User</h2>
-	<div class="input">
-		<label>Username</label>
-		<input type="text">
-	</div>
-	<div class="input">
-		<label>Password</label>
-		<input type="password">
-	</div>
-	<div class="input">
-    <input type="submit" value="Login" class= "loginbtn">
-    
-  <input type="button" value="Register" [routerLink]="['../register']" class="Registerbtn">
-  </div>
-  <a routerLink="../loginform">Admin</a>
+
+	<form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)" >
+
+
+	<div>
+		<div [ngClass]="{'error-border':!authForm.controls.username.valid && authForm.controls.username.touched}">
+			 <label floating>Enter Username</label>
+			 <input formControlName="username" type="text" >
+		</div>
+		 <div *ngIf="authForm.controls.username.hasError('pattern') && authForm.controls.username.touched">
+			 <p>Small, Capital Letters and Numbers only</p>
+		 </div>        
+		 <div *ngIf="authForm.controls.username.hasError('minlength') && authForm.controls.username.touched">
+			 <p>Minimum username length is 8!</p>
+		 </div>
+		 <div *ngIf="authForm.controls.username.hasError('maxlength') && authForm.controls.username.touched">
+			 <p>Maximum username length is 12!</p>
+		 </div>
+		
+
+	 <div>
+		 <div>
+				 <label floating>Enter Password</label>
+				 <input formControlName="password" type="password">
+	 </div>
+	 </div>
+
+	  <div>
+		 <button
+		 color="primary"
+		 text-center
+		 block
+			[disabled]="!authForm.valid" class="btn btn-primary">Sign In</button>
+	  </div>
+	 </div>
+
 </form>
 
+</div>
+	
+</div>
+</div>
 
- 
+
+
+
+		<!--<form (submit)="loginaUser($event)">
+				<h2>User</h2>
+
+		<div class="input" class="form-group">
+			<label>Username</label>
+			<input type="text" class="form-control" name="uName">
+		</div>
+		<div class="input">
+			<label>Password</label>
+			<input type="password"class="form-control" name="pName">
+		</div>
+		<br>
+		<div class="input" class="form-group" >
+		<input type="submit" value="Login"class="btn btn-primary btn-block">
+		
+	  <input type="button" value="Register" [routerLink]="['../register']" class="btn btn-warning btn-block">
+	  </div>
+		<a routerLink="../loginform">Admin</a>
+		<div class="container" style="background-color:f1f1f1">
+	
+			<span class="psw">Forgot <a href="#">password?</a></span>
+			
+		</div>
+		<div class="container" style="background-color:f1f1f1">
+				<label>
+						<input type="checkbox" checked="checked" name="remember"> Remember Me
+					</label>
+		</div>
+	</form>-->
+
+	
+	 
+	
+
+
 

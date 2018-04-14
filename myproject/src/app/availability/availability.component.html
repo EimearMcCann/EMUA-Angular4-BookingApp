@@ -1,0 +1,76 @@
+<a routerLink = "/app-user-dashboard">Back</a>
+
+<h2 class="page-header text-center">
+  Add Availability
+</h2>
+<div class="container">
+<div class="jumbotron">
+
+
+
+
+    <form [formGroup]="form" (ngSubmit)="saveAvail()">
+
+      
+      <div class="form-group col-md-4">
+        <label color="light"> Update Date Availability:</label>
+        <input type="date" name="Appointment_Date" class="form-control"
+               placeholder="Update Date Availability"
+             formControlName="Appointment_Date"
+               [(ngModel)]="appointmentDate">
+              </div>
+              
+               <div class="form-group col-md-4">
+               <label color="light"> Update Time Availability:</label>
+               <input type="time" name="Appointment_Time" class="form-control"
+                      placeholder="Update Time Avilability"
+                    formControlName="Appointment_Time"
+                      [(ngModel)]="appointmentTime">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label color="light"> Yes or No:</label>
+                        <select type="text" name="Appointment_Avail" class="form-control"
+                               placeholder="Update Time Availability"
+                             formControlName="Appointment_Avail"
+                               [(ngModel)]="appointmentAvail">
+                               <option>Yes</option>
+                               <option>No</option>
+                        </select>
+                             </div>
+
+
+   <button (click)="ngSubmit"
+    color="primary"
+    class="btn btn-primary btn-block"
+    text-center
+    block >Update Date</button>
+
+              
+        
+
+    </form>
+
+    
+</div>
+</div>
+<h2>Available Dates & Times</h2>
+<div style="overflow-x:auto;">
+  
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search For Dates..">
+
+  <table style="width:100%" class="table-hover" id="myTable">
+    <thead>
+    <tr>
+      <td>Appointment Date</td>
+      <td>Appointment Time</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+     <!-- <td>{{ item.AppointmentID }}</td>-->
+      <td>{{ item.Appointment_Date}}</td> 
+      <td>{{ item.Appointment_Time}}</td>
+    </tr>
+  </tbody>
+  </table>
+  </div>

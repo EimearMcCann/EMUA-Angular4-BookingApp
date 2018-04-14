@@ -1,0 +1,73 @@
+<a routerLink = "/app-user-dashboard">Back</a>
+
+
+
+
+<h2 class="header text-center">
+  Book Appointment
+</h2>
+
+<div class="container">
+<div class="jumbotron">
+  
+
+    
+
+<form [formGroup]="form" (ngSubmit)="saveAppointment()">
+     
+      <label color="light"> Enter your username:</label>
+       <input type="text" name="Appoint_Username" class="form-control"
+              placeholder="Enter your name"
+            formControlName="Appoint_Username"
+            required minlength="5"
+              [(ngModel)]="AppointmentUsername">
+            
+        <br>
+        <div class="form-group">
+        <label for="Appointment_Service"> Appointment Service:</label>
+        <select id="Appointment_Service"  formControlName="Appointment_Service"
+               [(ngModel)]="AppointmentService" class="form-control"> 
+              <option value="Gel Nails">Nails</option>
+              <option value="Gel Nails with Extention">Gel Nails with extention</option>
+              <option value="Full body spray Tan">Full Body Spray Tan</option>
+              <option value="Make up and Lashes">Make up and Lashes</option>
+              <option value="Lash Extentions">Lash Extentions</option>
+</select>
+        </div>
+
+       <label for="Appoint_Date">Appointment Date:</label>
+        <select id="Appointment_Date" formControlName="Appoint_Date"
+               [(ngModel)]="AppointmentDate" (change)="load()" class="form-control">
+               <option *ngFor="let item of items"  [value] ="item.Appointment_Date">
+               {{item.Appointment_Date}}
+               </option>
+              </select>
+
+    
+    <div class="form-group">
+    <label for="Appoint_Time">Appointment Time:</label>
+     <select id="Appointment_Time"  formControlName="Appoint_Time"
+            [(ngModel)]="AppointmentTime"   class="form-control">
+            <option *ngFor="let item of times" [value] ="item.Appointment_Time">
+                {{item.Appointment_Time}}
+                </option>
+     </select>
+          </div>
+
+
+   
+
+ <button (click)="ngSubmit"
+    color="primary"
+    class="btn btn-primary btn-block"
+    text-center
+    block
+    >Submit</button>
+
+   <!-- [disabled]="!form.valid"-->
+   
+    
+
+</form>
+</div>
+</div>

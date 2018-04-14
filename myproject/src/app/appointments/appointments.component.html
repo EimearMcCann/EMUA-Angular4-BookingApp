@@ -1,13 +1,19 @@
 <header style = "text-align: right;">
   <input type="button" value="Sign Out" [routerLink]="['/']" class="Homebtn">
 </header>
+<h2 class="header text-center">
+    Appointment Schedule
+  </h2>
+  
+ 
+  
 
 <div style="overflow-x:auto;">
   
-    <table style="width:100%" class="blueTable">
+    <table style="width:100%" class="table table-hover">
       <thead>
       <tr>
-        <td>Appointment ID</td>
+          <td>Id</td>
         <td>Name</td>
         <td>Service Name</td> 
         <td>Appointment Time</td>
@@ -15,18 +21,74 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of items">
-        <td>{{ item.idAppointment }}</td>
-        <td>{{ item.Appointment_Name}}</td>
-        <td>{{ item.Appointment_Service}}</td>
-        <td>{{ item.Appointment_Time}}</td> 
-        <td>{{ item.Appointment_Date }}</td>
+      <tr *ngFor="let prod of prods let index=index" (click)="checking(index)">
+          <td>{{ prod.Appointment_ID}}</td>
+       <td>{{ prod.Appoint_Username}}</td>
+        <td>{{ prod.Appointment_Service}}</td>
+        <td>{{ prod.Appoint_Time}}</td> 
+        <td>{{ prod.Appoint_Date }}</td>
       </tr>
     </tbody>
     </table>
-    </div>
-    
-<!--<li *ngFor = "let item of items">
-  <h2>{{ item.idAppointment }}{{ item.Appointment_Name }}<br> {{ item.Appointment_Time}}<br> {{ item.Appointment_Date }} {{ item.Appointment_Service}}</h2> 
 
-</li>-->
+    
+    <form [formGroup]="form"  (ngSubmit)="saveAppointment()">
+      <div class="form-row">
+
+          <div class="form-group col-md-2">
+              <label color="light">ID:</label>
+             <input id="Appointment_ID" class="form-control"
+                  formControlName="Appointment_ID" name="Appointment_ID"
+                    [(ngModel)]="selectedItem.Appointment_ID" disabled >
+                   </div>
+
+          <div class="form-group col-md-5">
+              <label color="light">Username:</label>
+             <input id="Appoint_Username" class="form-control"
+                  formControlName="Appoint_Username" name="Appoint_Username"
+                    [(ngModel)]="selectedItem.Appoint_Username" disabled >
+          </div>
+                             <div class="form-group">
+                                <label for="Appointment_Service"> Appointment Service:</label>
+                                <input id="Appointment_Service"  formControlName="Appointment_Service"
+                                       [(ngModel)]="selectedItem.Appointment_Service" class="form-control" disabled> 
+                                </div>
+
+
+                             <div class="form-group col-md-5">
+                             <label for="Appointment_Date">Appointment Date:</label>
+                             <input id="Appointment_Date" formControlName="Appoint_Date"
+                                    [(ngModel)]="selectedItem.Appoint_Date" class="form-control" disabled>
+                             </div>
+
+                             <div class="form-group">
+                                <label for="Appoint_Time">Appointment Time:</label>
+                                 <input id="Appointment_Time"  formControlName="Appoint_Time"
+                                        [(ngModel)]="selectedItem.Appoint_Time"   class="form-control" disabled>
+                                      </div>
+                         
+                       <!--      <div class="form-group col-md-5">
+                         <label for="Appoint_Time">Appointment Time:</label>
+                          <select id="Appointment_Time"  formControlName="Appoint_Time"
+                                 [(ngModel)]="AppointmentTime"   class="form-control">
+                                 <option *ngFor="let item of times" [value] ="item.Appointment_Time">
+                                     {{item.Appointment_Time}}
+                                     </option>
+                          </select>
+                               </div>-->
+                     
+                    <button
+                    type="ngSubmit"
+                    class="btn btn-primary btn-block"
+                    color="primary"
+                    text-center
+                    block
+                    [disabled]="!form.valid">Update</button>
+                   
+      </div>
+  
+  
+   </form>
+  
+
+

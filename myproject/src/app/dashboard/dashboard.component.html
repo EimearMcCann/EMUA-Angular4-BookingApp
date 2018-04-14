@@ -1,19 +1,37 @@
 <header style = "text-align: right;">
-  <input type="button" value="Sign Out" [routerLink]="['/']" class="Homebtn">
+    <ul class="nav navbar-nav navbar-right">
+      </ul>
 </header>
 
 
-<input type="button" value="View Clients" [routerLink]="['../clients']" class="Clientbtn" style="margin-left:auto">
+<div class="container">
+  <div class="jumbotron">
 
-<br> <br> <p> 
+
+
+
+<button type="button" [routerLink]="['../clients']" class="btn btn-primary" style="margin-left:auto">Update Clients </button>
+
+<br> <p> 
 
 
   
 </p>
-<input type="button" value="View Appointments" [routerLink]="['../appointments']" class="btn" style="margin-right:auto">
+<button [routerLink]="['../appointments']" class="btn btn-primary">View Appointments </button>
+<br>
+<p>
+
+
+</p>
+<button type="button" [routerLink]="['../app-availability']" class="btn btn-primary" style="margin-right:auto">Add Availability</button>
+<br>
+<p>
 
 
 
+</p>
+</div>
+</div>
 
 <p>
   You are Authenticated!!

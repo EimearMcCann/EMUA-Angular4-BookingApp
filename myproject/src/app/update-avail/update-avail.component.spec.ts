@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DateandtimeComponent } from './dateandtime.component';
+import { UpdateAvailComponent } from './update-avail.component';
 
-describe('DateandtimeComponent', () => {
-  let component: DateandtimeComponent;
-  let fixture: ComponentFixture<DateandtimeComponent>;
+describe('UpdateAvailComponent', () => {
+  let component: UpdateAvailComponent;
+  let fixture: ComponentFixture<UpdateAvailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DateandtimeComponent ]
+      declarations: [ UpdateAvailComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DateandtimeComponent);
+    fixture = TestBed.createComponent(UpdateAvailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

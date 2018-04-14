@@ -1,31 +1,7 @@
+.vertical-center {
+    min-height: 100%;
+    min-height: 100vh;
 
-:host {
-	flex-grow: 1;
-	display: flex;
-	justify-content: center;
+    display: flex;
     align-items: center;
-    
-}
-
-div.input {
-	position: relative;
-}
-
-div.input label {
-	position: absolute;
-	top: 0;
-	transform: translateY(-50%);
-	left: 10px;
-	background: rgb(255, 255, 255);
-	padding: 5px 2px;
-}
-
-div.input input {
-	padding: 10px 10px;
-	font-size: 25px;
-	outline: 0;
-}
-
-div.input {
-	margin-top: 20px;
 }
