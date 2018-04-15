@@ -10,15 +10,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {RouterModule, Routes} from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import {UserService} from './user.service';
-import { AuthguardGuard } from './authguard.guard';
 import { ClientsComponent } from './clients/clients.component';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { RegisterComponent } from './register/register.component';
-import { UserservicesComponent } from './userservices/userservices.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewclientComponent } from './newclient/newclient.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalendarModule } from 'angular-calendar';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NewAppComponent } from './new-app/new-app.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -58,7 +55,7 @@ const appRoutes:Routes = [
   },
   {
     path: 'dashboard',
-    canActivate: [AuthguardGuard],
+    canActivate: [],
     component: DashboardComponent
   },
   {
@@ -102,7 +99,6 @@ const appRoutes:Routes = [
     ClientsComponent,
     UserloginComponent,
     RegisterComponent,
-    UserservicesComponent,
     NewclientComponent,
     WelcomeComponent,
     NewAppComponent,
@@ -120,13 +116,11 @@ const appRoutes:Routes = [
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    CalendarModule.forRoot(),
     ToastModule.forRoot() ,
     NgbModule.forRoot()
     
   ],
-  providers: [UserService,
-  AuthguardGuard],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
