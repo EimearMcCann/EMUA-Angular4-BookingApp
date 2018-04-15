@@ -12,5 +12,6 @@ export const environment = {
   projectId: "angular-auth-firebase-fc578",
   storageBucket: "",
   messagingSenderId: "841114277968"
+  
 }
 };

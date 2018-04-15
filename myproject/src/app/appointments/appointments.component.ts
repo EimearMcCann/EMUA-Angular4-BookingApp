@@ -74,6 +74,7 @@ export class AppointmentsComponent {
 
 
 
+
   load() : void{
     this.http
 
