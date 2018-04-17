@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-loginform',
@@ -9,7 +10,12 @@ import { UserService } from '../user.service';
 })
 export class LoginformComponent implements OnInit {
 
-  constructor(private router: Router, private user: UserService) { }
+  constructor(private router: Router, private user: UserService, public toastr : ToastsManager, public vcr: ViewContainerRef) { 
+
+    this.toastr.setRootViewContainerRef(vcr);
+   
+  }
+  
 
   ngOnInit() {
   }
@@ -23,6 +29,9 @@ export class LoginformComponent implements OnInit {
     if (username =='admin' && password =='admin'){
       this.user.setUserLoggedIn();
       this.router.navigate(['dashboard']);
+    }
+    else{
+      this.toastr.error("Wrong Username or Password");
     }
 
 

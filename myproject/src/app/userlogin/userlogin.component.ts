@@ -14,13 +14,61 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 })
 export class UserloginComponent  {
 
+
+
+
+  constructor(private router: Router, private user: UserService, public toastr : ToastsManager, public vcr: ViewContainerRef) { 
+
+    this.toastr.setRootViewContainerRef(vcr);
+   
+  }
+  
+
+  ngOnInit() {
+  }
+
+  loginUser(e){
+    e.preventDefault();
+    console.log(e);
+    var username = e.target.elements[0].value;
+    var password = e.target.elements[1].value;
+    
+    if (username =='AndreaC' && password =='12345678'){
+      this.user.setUserLoggedIn();
+      this.router.navigate(['app-user-dashboard']);
+    }
+    if (username =='EimearMcCann' && password =='Monken.54'){
+      this.user.setUserLoggedIn();
+      this.router.navigate(['app-user-dashboard']);
+    }
+    
+    else{
+      this.toastr.error("Wrong Username or Password");
+    }
+
+
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*
+
   public authForm                  : FormGroup;
 
-  //Model for managing fields
-  public uName         : any;
-  public pWord         : any;
-  public fName         : any;
-  public eMail        : any;
+
 
    //Property to store the recordID for when an existing entry is being edited
 
@@ -39,7 +87,9 @@ export class UserloginComponent  {
 
 
 
-  constructor(private router: Router, private user: UserService, public http :HttpClient, public toastr : ToastsManager,
+  constructor(private router: Router,
+      public http :HttpClient, 
+      public toastr : ToastsManager,
     vcr: ViewContainerRef,
     public fb : FormBuilder  ) {
 
@@ -48,15 +98,14 @@ export class UserloginComponent  {
    this.toastr.setRootViewContainerRef(vcr);
      // validators for username and password fields
      this.authForm = fb.group({
-      username: ['', Validators.compose([Validators.required, Validators.pattern('[A-Za-z0-9_]{8,30}'), Validators.minLength(8), Validators.maxLength(12)])],
-      password: ['', Validators.compose([Validators.required, Validators.minLength(7), Validators.maxLength(12)])]
+      username: ['', Validators.compose([Validators.required, Validators.pattern('[A-Za-z0-9_]{5,30}'), Validators.minLength(5), Validators.maxLength(12)])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(12)])]
   });
 
   }
   onSubmit(value: any): void { 
     if(this.authForm.valid) {
-        window.localStorage.setItem('username', value.username);
-       window.localStorage.setItem('password', value.password);
+      
     
     let headers 	: any		= new HttpHeaders({ 'Content-Type': 'application/json' }),
         options 	: any		= {"key":"validateUser", "username" : value.username, "password" : value.password},
@@ -66,56 +115,25 @@ export class UserloginComponent  {
    this.http.post(url, JSON.stringify(options), headers)
    .subscribe((data : any) =>
    {
-      // If the request was successful notify the user
-      this.hideForm   = true;
-       this.toastr.success('Username!!');
-      this.router.navigate(['app-user-dashboard']); 
+     this.hideForm=true;
+      this.router.navigate(['app-user-dashboard']);
+      console.log(value.username);
+      console.log(value.password);
+      //this.toastr.success('W,mnkn!!'); 
    },
    (error : any) =>
-   {
-     console.log(value.username);
+   { 
+     console.log(value.password);
      console.log(error);
-     this.toastr.success('Wrong Username or Password!!');
+     this.toastr.error('Wrong Username or Password!!');
    });
   }
 }
 
-   /**
-   * Triggered when template view is about to be entered
-   * Determine whether we adding or editing a record
-   * based on any supplied navigation parameters
-   */
-  
-
-  /**
-   * Assign the navigation retrieved data to properties
-   * used as models on the page's HTML form
-   *
-   */
-  selectEntry(item : any) : void
-  {
-    
-     this.uName = item.username;
-     this.pWord = item.password;
-     this.fName = item.name;
-     this.eMail = item.email;
-  }
-
-  /**
-   * Clear values in the page's HTML form fields
-   *
-   */
-  resetFields() : void
-  {
-     this.uName           = "";
-     this.pWord    = "";
-    
-  }
-
 
   
   // verify credentials for login
-  logInUser(username, password){
+ /* logInUser(username, password){
     let headers 	: any		= new HttpHeaders({ 'Content-Type': 'application/json' }),
     options 	: any		= { "key" : "validateUser", "username" : username, "password" : password},
     url       : any      	= this.baseURI + "manage-dataAWS.php";
@@ -137,12 +155,12 @@ export class UserloginComponent  {
     //console.log(password);
     this.toastr.success('Wrong Username or Password!!');
    
-  });
+  });*/
 
   
-  }
   
-}
+  
+
  /* ngOnInit() {
   }
   loginaUser(e){

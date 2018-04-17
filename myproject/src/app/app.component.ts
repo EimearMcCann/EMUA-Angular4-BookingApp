@@ -1,16 +1,19 @@
-import { Component} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
-import {Http, Response, Headers} from '@angular/http';
+import { Component, ViewContainerRef } from '@angular/core';
+import { ToastsManager } from 'ng2-toastr';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  inputs: ['items']
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {  
+export class AppComponent {
+  title = 'app';
+
+  public viewContainerRef: ViewContainerRef;
+
+  public constructor(public toastr: ToastsManager, viewContainerRef: ViewContainerRef) {
+    this.viewContainerRef = viewContainerRef;
+
+    this.toastr.setRootViewContainerRef(viewContainerRef);
+  }
 }
-
-
-

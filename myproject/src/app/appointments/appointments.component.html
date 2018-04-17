@@ -1,5 +1,8 @@
 <header style = "text-align: right;">
-  <input type="button" value="Sign Out" [routerLink]="['/']" class="Homebtn">
+  <input type="button" value="Sign Out" [routerLink]="['/userlogin']" class="Homebtn">
+</header>
+<header style = "text-align: right;">
+  <input type="button" value="Home" [routerLink]="['/app-user-dashboard']" class="Homebtn">
 </header>
 <h2 class="header text-center">
     Appointment Schedule
@@ -79,11 +82,11 @@
                      
                     <button
                     type="ngSubmit"
-                    class="btn btn-primary btn-block"
+                    class="btn btn-danger btn-block"
                     color="primary"
                     text-center
                     block
-                    [disabled]="!form.valid">Update</button>
+                    [disabled]="!form.valid">Delete Appointment</button>
                    
       </div>
   

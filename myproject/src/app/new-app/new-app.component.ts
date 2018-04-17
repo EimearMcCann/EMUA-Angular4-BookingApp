@@ -5,6 +5,9 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import {forkJoin} from 'rxjs/observable/forkJoin';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-new-app',
   templateUrl: './new-app.component.html',
@@ -40,6 +43,7 @@ export class NewAppComponent {
   constructor( public http       : HttpClient,
               public fb         : FormBuilder,
               public toastr : ToastsManager,
+              public router : Router,
               vcr: ViewContainerRef )
               
   {
@@ -100,6 +104,7 @@ export class NewAppComponent {
      {
         // If the request was successful notify the user
        //this.resetFields();
+       this.router.navigate(['appointments']);
   
        
        this.toastr.success('Appointment Booked, See you Soon!');

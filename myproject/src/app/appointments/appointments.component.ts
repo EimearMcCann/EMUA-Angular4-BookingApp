@@ -37,6 +37,7 @@ export class AppointmentsComponent {
    public Appointment_Date : any;
    public Appoint_Time : any;
    
+  public viewContainerRef: ViewContainerRef;
 
   // xampp url testing on local host
   private baseURI   : string = "http://ec2-34-244-164-69.eu-west-1.compute.amazonaws.com/";
@@ -45,10 +46,11 @@ export class AppointmentsComponent {
   constructor(public http : HttpClient,
     private router : Router,
     public fb         : FormBuilder,
-    public toastr : ToastsManager,
+    public toastr : ToastsManager, viewContainerRef: ViewContainerRef,
     vcr: ViewContainerRef) {
+      this.toastr.setRootViewContainerRef(viewContainerRef);
 
-    this.toastr.setRootViewContainerRef(vcr);
+   
     this.load();
     //this.loader();
    // this.loading();
@@ -126,19 +128,24 @@ export class AppointmentsComponent {
          
          console.log(Appoint_Time);
         // this.toastr.warning('User Updated!')
-         this.router.navigate(['app-update-avail']);
-         //this.toastr.warning('User Updated!')
+         this.toastr.warning('Appointment Updated!', null, { dismiss: 'controlled', showCloseButton: true});
+         this.router.navigate(['app-new-app']);
         // this.sendNotification(`Congratulations the user: ${username} was successfully added`);
       },
       (error : any) =>
       {
-       console.log(Appoint_Date);
-        console.log(error);
-        this.toastr.error('Something went wrong!!!')
+        console.log('Error Login: ', error.message);
+        this.toastr.error(`${error.message}`, null, {
+          dismiss: 'controlled',
+          showCloseButton: true
+        });
+        this.router.navigate(['appointments']);
 
         // this.sendNotification('Something went wrong!');
       });
      }
+
+     
 
   /*loading() {
 
