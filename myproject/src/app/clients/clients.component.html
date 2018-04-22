@@ -12,7 +12,7 @@
 <br>
 
 <a routerLink = '/newclient'>+ Add Client</a>
-
+<div class="jumbotron">
 
 <h1>Clients</h1>
 
@@ -48,7 +48,7 @@
 <div class="divy"></div>
 
 <form [formGroup]="form"  (ngSubmit)="saveUser()">
-    <h2 class="head text-center"> Update Client</h2>
+    <h2> Update Client</h2>
 
     <div class="form-row">
       <!--  <div class="form-group col-md-1">
@@ -89,20 +89,27 @@
 
  <button
  type="ngSubmit"
- class="btn btn-primary btn-block"
+ class="btn btn-primary btn-block col-sm-5"
  color="primary"
  text-center
  block
- [disabled]="!form.valid">Update</button>
+ [disabled]="!form.valid">Update</button><td>
 
- <button (click)="removeUser()" class="btn btn-danger btn-block" >Delete</button>﻿
+
+  
+ </td>
+
+
+
+
+ <button (click)="removeUser()" class="btn btn-danger col-sm-5" >Delete</button>﻿
  
 
 </div>
  </form>
 
 
-
+</div>
 
 
 

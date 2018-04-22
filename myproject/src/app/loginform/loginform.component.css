@@ -5,5 +5,5 @@ div.jumbotron {
   background-size: cover;
   background-repeat: no-repeat;
   color: rgb(0, 0, 0);
-  text-shadow: black 0.3em 0.3em 0.3em;
+  text-shadow: rgb(255, 255, 255) 0.3em 0.3em 0.3em;
 }

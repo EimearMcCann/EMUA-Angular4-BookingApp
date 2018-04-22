@@ -23,6 +23,7 @@ import { AvailabilityComponent } from './availability/availability.component';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UpdateAvailComponent } from './update-avail/update-avail.component';
+import { GdprComponent } from './gdpr/gdpr.component';
 
 
 
@@ -104,7 +105,8 @@ const appRoutes:Routes = [
     NewAppComponent,
     UserDashboardComponent,
     AvailabilityComponent,
-    UpdateAvailComponent
+    UpdateAvailComponent,
+    GdprComponent
 
     
   ],

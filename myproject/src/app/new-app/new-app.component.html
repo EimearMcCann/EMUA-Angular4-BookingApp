@@ -21,15 +21,17 @@
 <form [formGroup]="form" (ngSubmit)="saveAppointment()">
      
       <label color="light"> Enter your username:</label>
+      <div class="col-sm-5">
        <input type="text" name="Appoint_Username" class="form-control"
               placeholder="Enter your name"
             formControlName="Appoint_Username"
             required minlength="5"
               [(ngModel)]="AppointmentUsername">
-            
+      </div>
         <br>
         <div class="form-group">
         <label for="Appointment_Service"> Appointment Service:</label>
+        <div class="col-sm-5">
         <select id="Appointment_Service"  formControlName="Appointment_Service"
                [(ngModel)]="AppointmentService" class="form-control"> 
               <option value="Gel Nails">Nails</option>
@@ -39,35 +41,41 @@
               <option value="Lash Extentions">Lash Extentions</option>
 </select>
         </div>
+        </div>
 
        <label for="Appoint_Date">Appointment Date:</label>
+       <div class="col-sm-5">
         <select id="Appointment_Date" formControlName="Appoint_Date"
                [(ngModel)]="AppointmentDate" (change)="load()" class="form-control">
                <option *ngFor="let item of items"  [value] ="item.Appointment_Date">
                {{item.Appointment_Date}}
                </option>
               </select>
+             </div>
 
     
     <div class="form-group">
     <label for="Appoint_Time">Appointment Time:</label>
+    <div class="col-sm-5">
      <select id="Appointment_Time"  formControlName="Appoint_Time"
             [(ngModel)]="AppointmentTime"   class="form-control">
             <option *ngFor="let item of times" [value] ="item.Appointment_Time">
                 {{item.Appointment_Time}}
                 </option>
      </select>
+     </div>
           </div>
 
 
    
-
+          <div class="col-sm-5">
  <button (click)="ngSubmit"
     color="primary"
     class="btn btn-primary btn-block"
     text-center
     block
     >Submit</button>
+          </div>
 
    <!-- [disabled]="!form.valid"-->
    

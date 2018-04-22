@@ -1,4 +1,4 @@
-<a routerLink = "/app-user-dashboard">Back</a>
+<a routerLink = "/dashboard">Back</a>
 
 <h2 class="page-header text-center">
   Add Availability
@@ -41,7 +41,7 @@
 
    <button (click)="ngSubmit"
     color="primary"
-    class="btn btn-primary btn-block"
+    class="btn btn-primary btn-block col-sm-4"
     text-center
     block >Update Date</button>
 
@@ -53,7 +53,10 @@
     
 </div>
 </div>
-<h2>Available Dates & Times</h2>
+
+
+<!--
+  <h2>Available Dates & Times</h2>
 <div style="overflow-x:auto;">
   
   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search For Dates..">
@@ -67,10 +70,10 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of items">
-     <!-- <td>{{ item.AppointmentID }}</td>-->
-      <td>{{ item.Appointment_Date}}</td> 
-      <td>{{ item.Appointment_Time}}</td>
-    </tr>
-  </tbody>
-  </table>
-  </div>
+     <td>{{ item.Appointment_Date}}</td> 
+     <td>{{ item.Appointment_Time}}</td>
+   </tr>
+ </tbody>
+ </table>
+ </div>
+-->

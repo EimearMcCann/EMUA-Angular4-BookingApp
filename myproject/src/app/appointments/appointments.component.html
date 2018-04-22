@@ -8,7 +8,7 @@
     Appointment Schedule
   </h2>
   
- 
+ <div class="flex-container">
   
 
 <div style="overflow-x:auto;">
@@ -64,7 +64,7 @@
                                     [(ngModel)]="selectedItem.Appoint_Date" class="form-control" disabled>
                              </div>
 
-                             <div class="form-group">
+                             <div class="form-group col-sm-3">
                                 <label for="Appoint_Time">Appointment Time:</label>
                                  <input id="Appointment_Time"  formControlName="Appoint_Time"
                                         [(ngModel)]="selectedItem.Appoint_Time"   class="form-control" disabled>
@@ -79,7 +79,7 @@
                                      </option>
                           </select>
                                </div>-->
-                     
+                     <div class="col-sm-5">
                     <button
                     type="ngSubmit"
                     class="btn btn-danger btn-block"
@@ -87,11 +87,12 @@
                     text-center
                     block
                     [disabled]="!form.valid">Delete Appointment</button>
+                               </div>
                    
       </div>
   
   
    </form>
   
-
+  </div>
 

@@ -65,6 +65,7 @@ export class NewAppComponent {
         
      });
   }
+  
 
 
   saveAppointment() : void
@@ -102,12 +103,16 @@ export class NewAppComponent {
      this.http.post(url, JSON.stringify(options), headers)
      .subscribe((data : any) =>
      {
-        // If the request was successful notify the user
-       //this.resetFields();
-       this.router.navigate(['appointments']);
+        this.toastr.success('Appointment Booked');
+      
+        setTimeout(() => 
+        {
+            this.router.navigate(['appointments']);
+        },
+        1000);
   
        
-       this.toastr.success('Appointment Booked, See you Soon!');
+    
      
      },
      (error : any) =>
@@ -151,6 +156,8 @@ export class NewAppComponent {
     
   
   }
+
+ 
 
   load() {
 

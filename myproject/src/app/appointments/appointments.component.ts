@@ -129,7 +129,12 @@ export class AppointmentsComponent {
          console.log(Appoint_Time);
         // this.toastr.warning('User Updated!')
          this.toastr.warning('Appointment Updated!', null, { dismiss: 'controlled', showCloseButton: true});
-         this.router.navigate(['app-new-app']);
+         setTimeout(() => 
+         {
+             this.router.navigate(['app-new-app']);
+         },
+         1000);
+   
         // this.sendNotification(`Congratulations the user: ${username} was successfully added`);
       },
       (error : any) =>
