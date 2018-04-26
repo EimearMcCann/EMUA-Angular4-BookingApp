@@ -83,6 +83,11 @@ const appRoutes:Routes = [
     path:'app-update-avail',
     component:  UpdateAvailComponent
   },
+  {
+    path:'app-gdpr',
+    component:  GdprComponent
+  }
+
 
 
  

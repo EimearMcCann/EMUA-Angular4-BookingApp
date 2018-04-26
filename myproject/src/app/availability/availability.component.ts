@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -39,6 +41,7 @@ export class AvailabilityComponent  {
   constructor( public http       : HttpClient,
               public fb         : FormBuilder,
               public toastr : ToastsManager,
+              public router: Router,
               vcr: ViewContainerRef )
            
   {
@@ -73,7 +76,7 @@ export class AvailabilityComponent  {
      let
          appointmentDate   : string    = this.form.controls["Appointment_Date"].value,
          appointmentTime  : string    = this.form.controls["Appointment_Time"].value,
-         appointmentAvail  : string    = this.form.controls["Appointment_Time"].value
+         appointmentAvail  : string    = this.form.controls["Appointment_Avail"].value
 
      this.addAvail(appointmentDate, appointmentTime, appointmentAvail );
   }
@@ -97,7 +100,7 @@ export class AvailabilityComponent  {
 
      let headers  : any   = new HttpHeaders({ 'Content-Type': 'application/json' }),
          options  : any   = { "key" : "addAvail", "Appointment_Date" : appointmentDate, "Appointment_Time" : appointmentTime, "Appointment_Avail" : appointmentAvail },
-         url       : any        = this.baseURI + "manage-dataAWS.php1";
+         url       : any        = this.baseURI + "manage-dataAWS1.php";
         // url       : any        = this.URL + "/add";
 
      this.http.post(url, JSON.stringify(options), headers)
@@ -107,7 +110,7 @@ export class AvailabilityComponent  {
        
         console.log(appointmentTime);
         this.toastr.success('New Availability Added!!!');
-
+       
 
 
       

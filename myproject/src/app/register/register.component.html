@@ -2,7 +2,10 @@
      <h1 class="header text-center"> Register</h1>
      <div class="container">
        <div class="jumbotron" >
-        
+
+        <p>WARNING! 
+By registering for this site you Opt-in to the new GDPR <a routerLink="/app-gdpr">terms & conditions</a></p>
+
             <form [formGroup]="form" (ngSubmit)="saveUser()">
                  
                     <label color="light">Username:</label>
@@ -54,7 +57,7 @@
                 text-center
                 block
                 [disabled]="!form.valid">Sign Up</button>
-
+                
                 
     
     

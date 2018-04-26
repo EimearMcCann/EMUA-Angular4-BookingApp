@@ -66,11 +66,6 @@ export class RegisterComponent  {
      });
   }
 
- success(): void 
- {
-   this.router.navigate(['userlogin']);
- }
-
   /**
    * Handle data submitted from the page's HTML form
    * Determine whether we are adding a new record or amending an
@@ -113,8 +108,12 @@ export class RegisterComponent  {
      .subscribe((data : any) =>
      {
         // If the request was successful notify the user
-       this.resetFields();
-       this.toastr.success('Thanks for signing up!, Please Login..')
+       this.toastr.success('Thanks for signing up! Please Login..')
+      setTimeout(() => 
+        {
+            this.router.navigate(['userlogin']);
+        },
+        2000);
       // this.success();
        // this.sendNotification(`Congratulations the user: ${username} was successfully added`);
      },
